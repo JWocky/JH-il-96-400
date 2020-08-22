@@ -1,0 +1,1315 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+	This is currently my purely private version of the Il-96-400. It is based on the work of FGUK, namely XSaint and Petar Jedvaj. 		However, I develop JSB planes, this was, in the original package YASIM and got outdated by changes to Yasim and FG over the 		last more than 10 years. Also, the passenger vesion in the package was the I-96-400, the attempt of a 300-stretch with western 		engines	in the 90s (only one prototype built, while the 400T and the 400M are newer projects, with Russian avionics (although 		also in	English availalable and Aviadvigatel PS-90A1 (A2 optional), which also means different specs in speed and cruise
+	altitude and ceiling, so let's get back in the numbers and work on the cockpit integration over time.
+-->
+
+<PropertyList>
+
+	<sim>
+
+        	<description>Ilyushin IL-96-400</description>
+	        <author>Xsaint (original FGUK package)</author>
+        	<author>Petar Jedvaj (original FGUK package)</author>
+	        <author>Peter Brendt aka JWocky (for the private rebuild)</author>
+		
+		<aircraft-version>V03.00.00</aircraft-version>
+		<minimum-fg-version>2018.2.1</minimum-fg-version>
+
+		<!-- Status was "PROD" for the FGU package despite cockpit bugs and missed specs, this is just at the start -->
+	        <status>Alpha</status>
+
+
+		<rating>
+			<FDM type="int">	0</FDM>
+			<systems type="int">	1</systems>
+			<cockpit type="int">	2</cockpit>
+			<model type="int">	4</model>
+		</rating>
+
+		<flight-model>jsb</flight-model>
+		<aero>Aero/Il-96-400JSB</aero>
+
+
+		<startup>
+			<splash-texture>Splashes/newplash.png</splash-texture>
+		</startup>
+
+		<model>
+			<path>Aircraft/il-96-400/Models/il-96-400.xml</path>
+			<!--livery>
+				<file type="string">BA</file>
+			</livery>
+			<lights>
+				<file type="string">BA</file>
+			</lights-->
+			<armrest type="double">0</armrest>
+
+			<!-- JPack: push forces for Voodoomaster Pushback -->
+			<pushback>
+				<kp type="double">4000</kp>
+				<ki type="double">150</ki>
+				<kd type="double">0</kd>
+				<position-norm type="double">0</position-norm>
+				<enabled type="bool">false</enabled>
+			</pushback>
+		</model>
+
+		<!-- Subsection for submodels if submodels exist -->
+
+		<!-- basic startup settings for sim -->
+		<freeze>
+			<fuel>false</fuel>	<!-- false is default, only here for quick change while testing -->
+		</freeze>
+
+		<gui>
+			<dialogs>
+				<autopilot>
+					<!-- speed in kts for SYS7/8/9 APs -->
+					<kts-select type="bool">true</kts-select>
+					<mach-select tpye="bool">false</mach-select>
+				</autopilot>
+			</dialogs>
+		</gui>
+
+		<sound>
+			<path>Sounds/il-96-400-sound.xml</path>
+			<switch type = "bool">0</switch>
+			<stall-horn type="bool">0</stall-horn>
+		</sound>
+
+		<autostart>
+			<started>0</started>
+		</autostart>
+
+		<virtual-cockpit archive="y">true</virtual-cockpit>
+
+		<!-- instrumentation>
+			<path>Systems/instrumentation.xml</path>
+		</instrumentation-->
+
+		<airport>
+			<runways>
+				<start-offset-m>50</start-offset-m>
+			</runways>
+		</airport>
+
+		<chase-distance-m>-100</chase-distance-m>
+
+		<systems>
+			<path>Aircraft/il-96-400/Systems/systems.xml</path>
+			<!--autopilot>
+				<path>Systems/il-96-400-autopilot.xml</path>
+			</autopilot -->
+			<autopilot>
+				<path>Systems/Autopilot/SYS11_0_autopilot.xml</path>
+			</autopilot>
+		</systems>
+
+		<flaps>
+			<setting>0.000</setting>  <!-- flaps up -->
+			<setting>0.033</setting>  <!-- flaps 1  -->
+			<setting>0.166</setting>  <!-- flaps 5  -->
+			<setting>0.500</setting>  <!-- flaps 15 -->
+			<setting>0.666</setting>  <!-- flaps 20 -->
+			<setting>0.833</setting>  <!-- flaps 25 -->
+			<setting>1.000</setting>  <!-- flaps 30 -->
+		</flaps>
+
+		<multiplay>
+			<generic>
+				<int n="0" alias="/systems/electrical/outputs/strobe"/>
+				<int n="1" alias="/systems/electrical/outputs/beacon"/>
+				<int n="2" alias="/systems/electrical/outputs/taxi-lights"/>
+				<int n="3" alias="/systems/electrical/outputs/logo-lights"/>
+				<int n="4" alias="/systems/electrical/outputs/landing-light[0]"/>
+				<int n="5" alias="/systems/electrical/outputs/landing-light[1]"/>
+				<int n="6" alias="/systems/electrical/outputs/landing-light[2]"/>
+				<int n="7" alias="/systems/electrical/outputs/nav-lights"/>
+
+				<float n="0" alias="/gear/gear[0]/compression-m"/>
+				<float n="1" alias="/gear/gear[1]/compression-m"/>
+				<float n="2" alias="/gear/gear[2]/compression-m"/>
+				<float n="3" alias="/gear/gear[3]/compression-m"/>
+				<float n="4" alias="/gear/gear[4]/compression-m"/>
+				<float n="5" alias="/surface-positions/speedbrake-norm"/>
+				<float n="6" alias="/surface-positions/reverser-norm"/>
+				<string  alias="/sim/multiplay/callsign"/>
+			</generic>
+		</multiplay>
+		  
+		<!-- Blackout rendering due to G-forces, relative tolerant -->
+		<rendering>
+			<redout>
+				<enabled type="bool">true</enabled>
+				<parameters>
+					<blackout-complete-g type="double">9.1</blackout-complete-g>
+					<blackout-onset-g type="double">7.5</blackout-onset-g>
+					<redout-complete-g type="double">-6.5</redout-complete-g>
+					<redout-onset-g type="double">-4</redout-onset-g>
+				</parameters>
+			</redout>
+			<camera-group>
+				<znear type="double">0.1</znear>
+			</camera-group>
+		</rendering>
+
+		<!-- All the views (crew stations + 1 more to allow moving around + extras like Tail Camera) -->
+
+		<view n="0">
+			<name>Pilot View</name>
+			<type>lookfrom</type>
+			<internal type="bool">true</internal>
+			<config>
+				<x-offset-m type="double">-0.42</x-offset-m> <!--L/R-->
+				<y-offset-m type="double">0.75</y-offset-m>   <!--U/D-->
+				<z-offset-m type="double">-22.94</z-offset-m>  <!--F/B-->
+				<pitch-offset-deg>-13.5</pitch-offset-deg> 
+				<default-field-of-view-deg type="double">84.7</default-field-of-view-deg>
+				<limits>
+					<enabled type="bool">true</enabled>
+					<left>
+						<heading-max-deg type="double">140</heading-max-deg>
+						<x-offset-max-m type="double">0.35</x-offset-max-m>
+						<x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+					</left>
+					<right>
+						<heading-max-deg type="double">160</heading-max-deg>
+						<x-offset-max-m type="double">0.25</x-offset-max-m>
+						<x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+					</right>
+				</limits>
+			</config>
+		</view>
+
+		<view n="100">
+			<name>CoPilot View</name>
+			<enabled type="bool">true</enabled>
+			<type>lookfrom</type>
+			<internal type="bool">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<from-model-idx type="int">0</from-model-idx>
+				<ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+				<default-field-of-view-deg type="double">77.7</default-field-of-view-deg>
+				<default-pitch-deg type="double">0</default-pitch-deg>
+				<default-heading-deg type="double">0</default-heading-deg>
+				<front-direction-deg type="double">0</front-direction-deg>
+				<front-left-direction-deg type="double">45</front-left-direction-deg>
+				<left-direction-deg type="double">90</left-direction-deg>
+				<back-left-direction-deg type="double">135</back-left-direction-deg>
+				<back-direction-deg type="double">180</back-direction-deg>
+				<back-right-direction-deg type="double">225</back-right-direction-deg>
+				<right-direction-deg type="double">270</right-direction-deg>
+				<front-right-direction-deg type="double">315</front-right-direction-deg>
+				<dynamic-view type="bool">true</dynamic-view>
+				<x-offset-m type="double">0.37</x-offset-m>
+				<y-offset-m type="double">0.8</y-offset-m>
+				<z-offset-m type="double">-22.84</z-offset-m>
+				<pitch-offset-deg>-13.5</pitch-offset-deg>
+				<limits>
+					<enabled type="bool">true</enabled>
+					<left>
+						<heading-max-deg type="double">140</heading-max-deg>
+						<x-offset-max-m type="double">0.25</x-offset-max-m>
+						<x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+					</left>
+					<right>
+						<heading-max-deg type="double">160</heading-max-deg>
+						<x-offset-max-m type="double">0.35</x-offset-max-m>
+						<x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+					</right>
+				</limits>
+			</config>
+		</view>
+
+		
+		<!-- HUD section -->
+		<hud>
+			<enable3d>false</enable3d>
+			<path n="1">Systems/HUD/hud.xml</path>
+			<visibility n="1">false</visibility>
+			<palette>
+				<color n="0">
+					<alpha type="float">0.85</alpha>
+					<antialiased type="bool">true</antialiased>
+					<brightness type="float">0.85</brightness>
+					<transparent type="bool">true</transparent>
+					<red type="float">0.38</red>
+					<green type="float">1.0</green>
+					<blue type="float">0.22</blue>
+				</color>
+	
+				<color n="1">
+					<alpha type="float">0.85</alpha>
+					<antialiased type="bool">true</antialiased>
+					<brightness type="float">0.85</brightness>
+					<transparent type="bool">true</transparent>
+					<red type="float">1.0</red>
+					<green type="float">1.0</green>
+					<blue type="float">1.0</blue>
+				</color>
+	
+				<color n="2">
+					<alpha type="float">1.00</alpha>
+					<antialiased type="bool">false</antialiased>
+					<brightness type="float">1.00</brightness>
+					<transparent type="bool">false</transparent>
+					<red type="float">0.1</red>
+					<green type="float">0.1</green>
+					<blue type="float">0.1</blue>
+				</color>
+	
+				<color n="3">
+					<alpha type="float">0.85</alpha>
+					<antialiased type="bool">true</antialiased>
+					<brightness type="float">0.85</brightness>
+					<transparent type="bool">true</transparent>
+					<red type="float">1.0</red>
+					<green type="float">0.2</green>
+					<blue type="float">0.0</blue>
+				</color>
+	
+				<color n="4">
+					<alpha type="float">1.00</alpha>
+					<antialiased type="bool">false</antialiased>
+					<brightness type="float">1.00</brightness>
+					<transparent type="bool">false</transparent>
+					<red type="float">1.0</red>
+					<green type="float">0.0</green>
+					<blue type="float">0.0</blue>
+				</color>
+	
+				<color n="5">
+					<alpha type="float">1.00</alpha>
+					<antialiased type="bool">false</antialiased>
+					<brightness type="float">1.00</brightness>
+					<transparent type="bool">false</transparent>
+					<red type="float">0.0</red>
+					<green type="float">1.0</green>
+					<blue type="float">0.0</blue>
+				</color>
+	
+				<color n="6">
+					<alpha type="float">1.00</alpha>
+					<antialiased type="bool">false</antialiased>
+					<brightness type="float">1.00</brightness>
+					<transparent type="bool">false</transparent>
+					<red type="float">0.1</red>
+					<green type="float">0.1</green>
+					<blue type="float">1.0</blue>
+				</color>
+	
+				<color n="7">
+					<alpha type="float">1.00</alpha>
+					<antialiased type="bool">false</antialiased>
+					<brightness type="float">1.00</brightness>
+					<transparent type="bool">false</transparent>
+					<red type="float">0.0</red>
+					<green type="float">0.2</green>
+					<blue type="float">0.0</blue>
+				</color>
+	
+				<color n="8">
+					<alpha type="float">1.00</alpha>
+					<antialiased type="bool">false</antialiased>
+					<brightness type="float">1.00</brightness>
+					<transparent type="bool">false</transparent>
+					<red type="float">0.0</red>
+					<green type="float">0.0</green>
+					<blue type="float">0.2</blue>
+				</color>
+	
+				<color n="9">
+					<alpha type="float">1.00</alpha>
+					<antialiased type="bool">false</antialiased>
+					<brightness type="float">1.00</brightness>
+					<transparent type="bool">false</transparent>
+					<red type="float">0.2</red>
+					<green type="float">0.0</green>
+					<blue type="float">0.0</blue>
+				</color>
+	
+				<color n="10">
+					<alpha type="float">1.00</alpha>
+					<antialiased type="bool">false</antialiased>
+					<brightness type="float">1.00</brightness>
+					<transparent type="bool">false</transparent>
+					<red type="float">1.0</red>
+					<green type="float">1.0</green>
+					<blue type="float">0.0</blue>
+				</color>
+
+			</palette>
+ 
+			<clipping>
+				<left type="double">-300</left>
+				<top type="double">250</top>
+				<right type="double">300</right>
+				<bottom type="double">-275</bottom>
+			</clipping>
+		</hud>
+
+		<help>
+			<title>il-96-400M</title>
+			<key>
+				<name>Delete</name>
+				<desc>toggle thrust reversers</desc>
+			</key>
+			<key>
+				<name>Ctrl-b</name>
+				<desc>toggle speed brakes</desc>
+			</key>
+		</help>
+
+		<menubar>
+			<default>
+
+				<menu n="3">
+					<item>
+						<name>autopilot</name>
+						<label>Autopilot Settings</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+								var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Dialogs/autopilot11.xml");
+								autopilot.open();
+							</script>
+						</binding>
+					</item>
+				</menu>
+				
+				<menu n="5">
+					<item n="1">
+						<label>Radio Stack</label>
+						<binding>
+							<command>nasal</command>
+							<script>dialogs.Radio.open()</script>
+						</binding>
+					</item>
+				</menu>
+				
+				<menu n="100">
+					<label>il-96-400M</label>
+					<enabled type="bool">true</enabled>
+
+					<item>
+						<label>System Settings</label>
+						<binding>
+						<command>nasal</command>
+							<script>
+								var settings_dialog = il96.SettingsDialog.new(1740, 320);
+							</script>
+						</binding>
+					</item>
+
+
+					<item>
+						<label>Automatic Start/Shutdown</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+								var autostart_dialog = il96.AutostartDialog.new();
+							</script>
+						</binding>
+						<binding>
+							<command>property-toggle</command>
+							<property>sim/model/start-idling</property>
+						</binding>
+					</item>
+
+					<item>
+						<label>Pilots</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+								var pilots_dialog = il96.PilotsDialog.new();
+							</script>
+						</binding>
+					</item>
+
+					<item >
+						<label>Pushback</label>
+						<name>pushback</name>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>pushback</dialog-name>
+						</binding>
+					</item>
+					
+					<item>
+						<label>Select Livery</label>
+						<binding>
+							<command>nasal</command>
+							<script>aircraft.livery.dialog.toggle()</script>
+						</binding>
+					</item>
+					
+					<item>
+						<label>EFB</label>
+						<binding>
+							<command>nasal</command>
+							<script>dialogs.EFB.toggle();</script>
+						</binding>
+					</item>
+				</menu>
+			</default>
+		</menubar>
+
+	</sim>
+	
+	<fdm>
+		<jsbsim>
+			<fcs>
+				<flap-setting type="int">0</flap-setting>
+			</fcs>
+			<!--systems>
+				<pushback>
+					<linked type="int">0</linked>
+				</pushback>
+				<justone type="int">1</justone>
+			</systems-->
+		</jsbsim>
+	</fdm>
+
+	<engines>
+		<engine-set type="string">PS-90A1</engine-set>
+		<engine n="0">
+			<reverser type="bool">false</reverser>
+			<reverser-position type="double">0.000000</reverser-position>
+		</engine>     
+		<engine n="1">
+			<reverser type="bool">false</reverser>
+			<reverser-position type="double">0.000000</reverser-position>
+		</engine> 
+		<engine n="2">
+			<reverser type="bool">false</reverser>
+			<reverser-position type="double">0.000000</reverser-position>
+		</engine>
+		<engine n="3">
+			<reverser type="bool">false</reverser>
+			<reverser-position type="double">0.000000</reverser-position>
+		</engine>
+	</engines>
+
+	<gear>
+		<gear n="0">
+			<tyre-smoke type="int">0</tyre-smoke>
+			<sprayspeed-ms type="double">0</sprayspeed-ms>
+			<spray-density type="double">0</spray-density>
+			<caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
+		</gear>
+	
+		<gear n="1">
+			<tyre-smoke type="int">0</tyre-smoke>
+			<sprayspeed-ms type="double">0</sprayspeed-ms>
+			<spray-density type="double">0</spray-density>
+		</gear>
+        
+		<gear n="2">
+			<tyre-smoke type="int">0</tyre-smoke>
+			<sprayspeed-ms type="double">0</sprayspeed-ms>
+			<spray-density type="double">0</spray-density>
+		</gear>
+		
+		<gear n="3">
+			<tyre-smoke type="int">0</tyre-smoke>
+			<sprayspeed-ms type="double">0</sprayspeed-ms>
+			<spray-density type="double">0</spray-density>
+		</gear>
+	</gear>
+
+	<consumables>
+		<fuel>
+
+			<tank n="0">
+				<name>Left Wing</name>
+				<tank-num type="int">0</tank-num>
+				<capacity-lbs type="float"> 135078.70 </capacity-lbs>
+				<capacity-gal_us type="float"> 20161.00 </capacity-gal_us>
+				<level-lbs alias="/fdm/jsbsim/propulsion/tank[0]/contents-lbs"> 135078.70 </level-lbs>
+			</tank>
+
+			<tank n="1">
+				<name>Right Wing</name>
+				<tank-num type="int">1</tank-num>
+				<capacity-lbs type="float"> 135078.70 </capacity-lbs>
+				<capacity-gal_us type="float"> 20161.00 </capacity-gal_us>
+				<level-lbs alias="/fdm/jsbsim/propulsion/tank[1]/contents-lbs"> 135078.70 </level-lbs>
+			</tank>
+		</fuel>
+	</consumables>
+
+	<payload>
+
+		<weight n="0">
+			<name>Cockpit Crew (2-3 pers.)</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]" />
+			<weight-type type="string">crew</weight-type>
+			<min-lb>0</min-lb>
+			<max-lb>660</max-lb>
+		</weight>
+
+		<weight n="1">
+			<name>Cabin Crew 1st Class(2 pers.)</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]" />
+			<weight-type type="string">crew</weight-type>
+			<min-lb>0</min-lb>
+			<max-lb>440</max-lb>
+		</weight>
+
+		<weight n="2">
+			<name>Pax 1st Class(24 pers.)</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]" />
+			<weight-type type="string">crew</weight-type>
+			<min-lb>0</min-lb>
+			<max-lb>5280</max-lb>
+		</weight>
+
+		<weight n="3">
+			<name>Cabin Crew Business Class(2 pers.)</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[3]" />
+			<weight-type type="string">crew</weight-type>
+			<min-lb>0</min-lb>
+			<max-lb>440</max-lb>
+		</weight>
+
+		<weight n="4">
+			<name>Pax Business Class(24 pers.)</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[4]" />
+			<weight-type type="string">crew</weight-type>
+			<min-lb>0</min-lb>
+			<max-lb>14520</max-lb>
+		</weight>
+
+		<weight n="5">
+			<name>Cabin Crew Economy Section I(3 pers.)</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[5]" />
+			<weight-type type="string">crew</weight-type>
+			<min-lb>0</min-lb>
+			<max-lb>440</max-lb>
+		</weight>
+
+		<weight n="6">
+			<name>Pax Economy Section I(171 pers.)</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[6]" />
+			<weight-type type="string">crew</weight-type>
+			<min-lb>0</min-lb>
+			<max-lb>37620</max-lb>
+		</weight>
+
+		<weight n="7">
+			<name>Cabin Crew Economy Section II(3 pers.)</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[7]" />
+			<weight-type type="string">crew</weight-type>
+			<min-lb>0</min-lb>
+			<max-lb>440</max-lb>
+		</weight>
+
+		<weight n="8">
+			<name>Pax Economy Section II(89 pers.)</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[8]" />
+			<weight-type type="string">crew</weight-type>
+			<min-lb>0</min-lb>
+			<max-lb>19580</max-lb>
+		</weight>
+
+		<weight n="9">
+			<name>Lugagge/Cargo(89 pers.)</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[9]" />
+			<weight-type type="string">crew</weight-type>
+			<min-lb>0</min-lb>
+			<max-lb>21000</max-lb>
+		</weight>
+
+	</payload>
+
+	<input>
+	        <keyboard>
+
+	    		<key n="77">
+				<name>M</name>
+				<desc>Cycle HUD mode</desc>
+				<binding>
+					<command>property-cycle</command>
+					<property>/voodoomaster/hud/mode</property>
+					<value type="int">0</value>
+					<value type="int">1</value>
+					<value type="int">2</value>				
+					<!-- 3 reserved for radio operator -->
+					<value type="int">4</value>				
+				</binding>
+			</key>
+
+	    		<key n="109">
+				<name>m</name>
+				<desc>Cycle HUD mode</desc>
+				<binding>
+					<command>property-cycle</command>
+					<property>/voodoomaster/hud/mode</property>
+					<value type="int">4</value>
+					<!-- 3 reserved for radio operator -->
+					<value type="int">2</value>
+					<value type="int">1</value>
+					<value type="int">0</value>				
+				</binding>
+			</key>
+
+
+			<key n="127">
+				<name>Delete</name>
+				<desc>Toggle Reversers</desc>
+				<binding>
+					<command>property-toggle</command>
+					<property>/engines/engine[0]/reverser</property>
+				</binding>
+				<binding>
+					<command>property-toggle</command>
+					<property>/engines/engine[1]/reverser</property>
+				</binding>
+				<binding>
+					<command>property-toggle</command>
+					<property>/engines/engine[2]/reverser</property>
+				</binding>
+				<binding>
+					<command>property-toggle</command>
+					<property>/engines/engine[3]/reverser</property>
+				</binding>
+				<binding>
+					<command>property-toggle</command>
+					<property>/engines/engine[4]/reverser</property>
+				</binding>
+				<binding>
+					<command>property-toggle</command>
+					<property>/engines/engine[5]/reverser</property>
+				</binding>
+				<binding>
+					<command>property-toggle</command>
+					<property>/engines/engine[6]/reverser</property>
+				</binding>
+				<binding>
+					<command>property-toggle</command>
+					<property>/engines/engine[7]/reverser</property>
+				</binding>
+			</key>
+
+			<key n="267">
+				<name>F11</name>
+				<desc>Pop up autopilot dialog</desc>
+				<binding>
+					<command>nasal</command>
+					<script>dialogs.ap_settings.toggle()</script>
+				</binding>
+			</key>
+		
+			<key n="268">
+				<name>F12</name>
+				<desc>Radio Stack</desc>
+				<binding>
+					<command>nasal</command>
+					<script>dialogs.Radio.open()</script>
+				</binding>
+			</key>
+		
+			<key n="1">
+				<name>Ctrl-A</name>
+				<desc>Toggle autopilot altitude lock</desc>
+				<binding>
+					<command>property-toggle</command>
+					<property>instrumentation/afds/inputs/alt-hold</property>
+				</binding>
+			</key>
+		
+			<key n="7">
+		                <name>Ctrl-G</name>
+		                <desc>Toggle autopilot glide slope lock</desc>
+		                <binding>
+		                    <command>property-toggle</command>
+		                    <property>instrumentation/afds/inputs/app-hold</property>
+		                </binding>
+			</key>
+
+			<key n="8">
+		                <name>Ctrl-H</name>
+		                <desc>Toggle autopilot heading lock</desc>
+		                <binding>
+		                    <command>property-toggle</command>
+		                    <property>instrumentation/afds/inputs/hdg-hold</property>
+		                </binding>
+			</key>
+            
+			<key n="14">
+		                <name>Ctrl-N</name>
+	        	        <desc>Toggle LNAV lock</desc>
+	        	        <binding>
+	        	            <command>property-toggle</command>
+	        	            <property>instrumentation/afds/inputs/lnav-hold</property>
+	        	        </binding>
+			</key>
+		
+			<key n="16">
+				<name>Ctrl-P</name>
+				<desc>Toggle VS</desc>
+				<binding>
+					<command>property-toggle</command>
+					<property>instrumentation/afds/inputs/vs-fpa-hold</property>
+				</binding>
+			</key>
+		
+			<key n="19">
+				<name>Ctrl-S</name>
+				<desc>Toggle autothrottle</desc>
+				<binding>
+					<command>property-toggle</command>
+					<property>instrumentation/afds/inputs/at-hold</property>
+				</binding>
+			</key>
+
+		</keyboard>
+	</input>
+
+	<instrumentation>
+		<radar>
+			<switch type="string" archive="y">on</switch>
+			<mode-control type="int" archive="y">1</mode-control>
+			<display-mode>plan</display-mode>
+			<display-controls>
+				<WX type="bool" archive="y">false</WX>
+				<pos type="bool" archive="y">true</pos>
+				<data type="bool" archive="y">true</data>
+				<symbol type="bool" archive="y">true</symbol>
+				<rotate type="bool" archive="y">true</rotate>
+			</display-controls>
+			<serviceable type="bool">true</serviceable>
+			<range type="int" archive="y">10</range>
+			<reference-range-nm type="double" archive="y">640</reference-range-nm>
+			<mode type="string" archive="y">WX</mode>
+			<font>
+				<color>
+					<red type="float">0.7</red>
+					<green type="float">0.7</green>
+					<blue type="float">0.7</blue>
+					<alpha type="float">1</alpha>
+				</color>
+				<name type="string" archive="y">helvetica_bold.txf</name>
+				<size type="float">8</size>
+				<line-spacing type="float">0.2</line-spacing>
+			</font>
+			<lightning type="bool" archive="y">true</lightning>
+			<display-mode type="string" archive="y">arc</display-mode>
+			<radar-texture-path type="string" archive="y">
+				Aircraft/il-96-400/Models/Instruments/MFD/od_wxradar.png
+			</radar-texture-path>
+			<echo-texture-path type="string" archive="y">
+				Aircraft/il-96-400/Models/Instruments/MFD/wxecho.png
+			</echo-texture-path>
+			<minimized type="bool" archive="y">false</minimized>
+			<heading-marker type="bool" archive="y">true</heading-marker>
+			<limit-deg type="int">360</limit-deg>
+		</radar>
+		
+		<groundradar>
+			<id type="string">KSFO</id>
+			<range type="double">1.2</range>
+		</groundradar>
+		
+		<mk-viii>
+			<serviceable>1</serviceable>
+			<speaker>
+				<max-dist>2</max-dist>
+		                <reference-dist>1</reference-dist>
+				<volume>0.4</volume>
+			</speaker>
+		</mk-viii>
+		
+		<adf n="1">
+			<serviceable type="bool">1</serviceable>
+			<mode>adf</mode>
+			<frequencies>
+				<selected-khz>341</selected-khz>
+				<standby-khz>379</standby-khz>
+			</frequencies>
+		</adf>
+		
+		<efis>
+			<eicas>
+				<msg n="0">
+					<text>TESTING TESTING</text>
+					<red>0.8</red>
+					<green>0.4</green>
+					<blue>0.2</blue>
+					<alpha>0.5</alpha>
+				</msg>
+			</eicas>
+		</efis>
+
+		<rmu>
+			<unit n="0">
+				<source-index type="int">0</source-index>
+				<source type="string">comm1</source>
+			</unit>
+			<unit n="1">
+				<source-index type="int">2</source-index>
+				<source type="string">nav1</source>
+			</unit>
+			<unit n="2">
+				<source-index type="int">5</source-index>
+				<source type="string">adf</source>
+			</unit>
+		</rmu>
+		
+		<nav>
+			<frequencies>
+				<standby-mhz n="1" type="double">109.50</standby-mhz>
+				<standby-mhz n="2" type="double">109.55</standby-mhz>
+				<standby-mhz n="3" type="double">110.10</standby-mhz>
+				<standby-mhz n="4" type="double">111.70</standby-mhz>
+			</frequencies>
+		</nav>
+		
+		<nav n="1">
+		        <frequencies>
+                		<standby-mhz n="1" type="double">109.50</standby-mhz>
+                		<standby-mhz n="2" type="double">109.55</standby-mhz>
+                		<standby-mhz n="3" type="double">110.10</standby-mhz>
+                		<standby-mhz n="4" type="double">111.70</standby-mhz>
+            		</frequencies>
+		</nav>
+
+	</instrumentation>
+
+	<controls>
+		<gear>
+			<brake-parking type="bool">1</brake-parking>
+		</gear>
+		<flight>
+			<speedbrake-lever type="int">0</speedbrake-lever>
+		</flight>
+	</controls>
+	
+	<limits>
+		<vne>450</vne>
+ 
+		<max-positive-g>4.4</max-positive-g>
+		<max-negative-g>-1.76</max-negative-g>
+ 
+		<max-flap-extension-speed n="0">
+			<flaps>0.167</flaps>
+			<speed>245</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed n="1">
+			<flaps>0.333</flaps>
+			<speed>215</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed n="2">
+			<flaps>0.667</flaps>
+			<speed>185</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed n="3">
+			<flaps>0.833</flaps>
+			<speed>185</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed n="4">
+			<flaps>1.000</flaps>
+			<speed>160</speed>
+		</max-flap-extension-speed>
+
+		<max-gear-extension-speed>220</max-gear-extension-speed>
+
+		<mass-and-balance>
+			<maximum-ramp-mass-lbs>603500</maximum-ramp-mass-lbs>
+			<maximum-takeoff-mass-lbs>583700</maximum-takeoff-mass-lbs>
+			<maximum-landing-mass-lbs>840000</maximum-landing-mass-lbs>
+			<maximum-zero-fuel-mass-lbs>397136</maximum-zero-fuel-mass-lbs>
+		</mass-and-balance>
+	</limits>
+
+	<autopilot>
+		<settings>
+			<ap-armed type="bool">false</ap-armed>
+			<kts-mach-select type="string">kts</kts-mach-select>
+			<max-pitch type="float">8</max-pitch>
+			<min-pitch type="float">-6</min-pitch>
+			<bank-angle-limit-deg type="int">35</bank-angle-limit-deg>
+			<propgain-roll type="float">-4.0</propgain-roll>
+			<altitude-unit type="string">ft</altitude-unit>
+			<buffered-altitude-m type="int">0</buffered-altitude-m>
+			<buffered-altitude-ft type="int">0</buffered-altitude-ft>
+			<target-altitude-m type="int">0</target-altitude-m>
+			<target-altitude-ft type="int">0</target-altitude-ft>
+                        <yawdamper type="bool">false</yawdamper>
+			<turn_gain_max type="double">-4.00</turn_gain_max>
+			<turn_gain_min type="double">-0.50</turn_gain_min>
+		</settings>
+		<internal>
+			<ap-active type="bool">false</ap-active>
+			<target-pitch-deg type="float">0.00</target-pitch-deg>
+			<max-pitch type="float"> 8.0</max-pitch>
+			<min-pitch type="float">-6.0</min-pitch>
+			<min-alt-ft type="int">1000</min-alt-ft>
+			<min-alt-m type="int">305</min-alt-m>
+		</internal>
+                <locks>
+                       <heading type="string"></heading>
+                       <altitude type="string"></altitude>
+                </locks>
+	</autopilot>
+      
+	<!-- Voodoomaster plane specific initializations -->
+	<voodoomaster>
+
+		<dialogs>
+			<fuel-and-payload type="string">Antonov An-124 Weight and Fuel</fuel-and-payload>
+			<system-settings type="string">Antonov An-124 System Settings</system-settings>
+		</dialogs>
+
+		<internal>
+			<message-header type="string">...</message-header>
+			<message-switcher type="string">...</message-switcher>
+
+			<msg_pump0 type="string">Fuel pumps left wing starting!</msg_pump0>
+			<msg_pump1 type="string">Fuel pumps right wing starting!</msg_pump1>
+
+			<msg_engine0 type="string">Engine 1 starting up!</msg_engine0>
+			<msg_engine1 type="string">Engine 2 starting up!</msg_engine1>
+			<msg_engine2 type="string">Engine 3 starting up!</msg_engine2>
+			<msg_engine3 type="string">Engine 4 starting up!</msg_engine3>
+			<msg_engine4 type="string">Engine 1 starting up!</msg_engine4>
+			<msg_engine5 type="string">Engine 2 starting up!</msg_engine5>
+			<msg_engine6 type="string">Engine 3 starting up!</msg_engine6>
+			<msg_engine7 type="string">Engine 4 starting up!</msg_engine7>
+
+			<msg_engspin0 type="string">Engine 1 spinning up!</msg_engspin0>
+			<msg_engspin1 type="string">Engine 2 spinning up!</msg_engspin1>
+			<msg_engspin2 type="string">Engine 3 spinning up!</msg_engspin2>
+			<msg_engspin3 type="string">Engine 4 spinning up!</msg_engspin3>
+			<msg_engspin4 type="string">Engine 1 spinning up!</msg_engspin4>
+			<msg_engspin5 type="string">Engine 2 spinning up!</msg_engspin5>
+			<msg_engspin6 type="string">Engine 3 spinning up!</msg_engspin6>
+			<msg_engspin7 type="string">Engine 4 spinning up!</msg_engspin7>
+
+			<msg_engwatch0 type="string">Engine 1 is running!</msg_engwatch0>
+			<msg_engwatch1 type="string">Engine 2 is running!</msg_engwatch1>
+			<msg_engwatch2 type="string">Engine 3 is running!</msg_engwatch2>
+			<msg_engwatch3 type="string">Engine 4 is running!</msg_engwatch3>
+			<msg_engwatch4 type="string">Engine 1 is running!</msg_engwatch4>
+			<msg_engwatch5 type="string">Engine 2 is running!</msg_engwatch5>
+			<msg_engwatch6 type="string">Engine 3 is running!</msg_engwatch6>
+			<msg_engwatch7 type="string">Engine 4 is running!</msg_engwatch7>
+
+			<msg_engine0_stop type="string">Engine 1 shutting down!</msg_engine0_stop>
+			<msg_engine1_stop type="string">Engine 2 shutting down!</msg_engine1_stop>
+			<msg_engine2_stop type="string">Engine 3 shutting down!</msg_engine2_stop>
+			<msg_engine3_stop type="string">Engine 4 shutting down!</msg_engine3_stop>
+			<msg_engine4_stop type="string">Engine 1 shutting down!</msg_engine4_stop>
+			<msg_engine5_stop type="string">Engine 2 shutting down!</msg_engine5_stop>
+			<msg_engine6_stop type="string">Engine 3 shutting down!</msg_engine6_stop>
+			<msg_engine7_stop type="string">Engine 4 shutting down!</msg_engine7_stop>
+
+		</internal>
+
+		<systems>
+			<electrical>
+				<number-apus type="int">1</number-apus>
+			</electrical>
+
+			<engines>
+				<number type="int">8</number>
+				<set>
+					<name type="string">PS-90A1</name>
+					<number type="int">4</number>
+				</set>
+				<set>
+					<name type="string">PS-90A2</name>
+					<number type="int">4</number>
+				</set>
+			</engines>
+
+			<fuel>
+				<number-pumps type="int">2</number-pumps>
+			</fuel>
+
+		</systems>
+
+		<settings>
+
+			<setting>
+				<name type="string">Units</name>
+				<current type="int">0</current>
+				<options>
+					<opt>
+						<name type="string">Imperial</name>
+						<pkey type="string">/voodoomaster/units</pkey>
+						<value type="string">imperial</value>
+					</opt>
+					<opt>
+						<name type="string">Metric</name>
+						<pkey type="string">/voodoomaster/units</pkey>
+						<value type="string">metric</value>
+					</opt>
+				</options>
+			</setting>
+
+			<setting>
+				<name type="string">Engines</name>
+				<current type="int">0</current>
+				<options>
+					<opt>
+						<name type="string">Aviadvigatel PS-90A1</name>
+						<pkey type="string">/engines/engine-set</pkey>
+						<value type="string">PS-90A1</value>
+					</opt>
+					<opt>
+						<name type="string">Aviadvigatel PS-90A2</name>
+						<pkey type="string">/engines/engine-set</pkey>
+						<value type="string">PS-90A2</value>
+					</opt>
+				</options>
+			</setting>
+
+			<setting>
+				<name type="string">Variants</name>
+				<current type="int">1</current>
+				<options>
+					<opt>
+						<name type="string">400M</name>
+						<pkey type="string">/voodoomaster/cockpit/style</pkey>
+						<value type="string">Original</value>
+					</opt>
+					<opt>
+						<name type="string">400MPU</name>
+						<pkey type="string">/voodoomaster/cockpit/style</pkey>
+						<value type="string">GenClassic</value>
+					</opt>
+					<opt>
+						<name type="string">400MPUM</name>
+						<pkey type="string">/voodoomaster/cockpit/style</pkey>
+						<value type="string">Experimental</value>
+					</opt>
+					<opt>
+						<name type="string">400T</name>
+						<pkey type="string">/voodoomaster/cockpit/style</pkey>
+						<value type="string">Experimental</value>
+					</opt>
+					<opt>
+						<name type="string">400TZ</name>
+						<pkey type="string">/voodoomaster/cockpit/style</pkey>
+						<value type="string">Experimental</value>
+					</opt>
+				</options>
+			</setting>
+
+		</settings>
+
+		<pilots>
+
+			<setting>
+				<name type="string">Nosewheel Steering</name>
+				<current type="int">1</current>
+				<listen type="int">1</listen>
+				<listenprop type="string">/fdm/jsbsim/systems/NWS/engaged</listenprop>
+				<options>
+					<opt>
+						<name type="string">On</name>
+						<pkey type="string">/fdm/jsbsim/systems/NWS/engaged</pkey>
+						<value type="int">1</value>
+					</opt>
+					<opt>
+						<name type="string">Off</name>
+						<pkey type="string">/fdm/jsbsim/systems/NWS/engaged</pkey>
+						<value type="int">0</value>
+					</opt>
+				</options>
+			</setting>
+
+		</pilots>
+
+		<steering>
+			<steering-type type="string">TriCycle</steering-type>	<!-- Alternativ: Taildragger-lock or TriCycle -->
+			<steering-wheel type="int">0</steering-wheel>
+		</steering>
+
+		<pushback>
+			<activated type="bool">false</activated>
+		</pushback>
+
+		<ground-service>
+			<fuel-truck>
+				<truck n="0">
+					<clean type="bool">false</clean>
+					<connect type="bool">false</connect>
+					<enable type="bool">false</enable>
+					<state type="double">0.00</state>
+					<transfer type="bool">false</transfer>
+				</truck>
+				<truck n="1">
+					<clean type="bool">false</clean>
+					<connect type="bool">false</connect>
+					<enable type="bool">false</enable>
+					<state type="double">0.00</state>
+					<transfer type="bool">false</transfer>
+				</truck>
+				<truck n="2">
+					<clean type="bool">false</clean>
+					<connect type="bool">false</connect>
+					<enable type="bool">false</enable>
+					<state type="double">0.00</state>
+					<transfer type="bool">false</transfer>
+				</truck>
+				<truck n="3">
+					<clean type="bool">false</clean>
+					<connect type="bool">false</connect>
+					<enable type="bool">false</enable>
+					<state type="double">0.00</state>
+					<transfer type="bool">false</transfer>
+				</truck>
+				<truck n="4">
+					<clean type="bool">false</clean>
+					<connect type="bool">false</connect>
+					<enable type="bool">false</enable>
+					<state type="double">0.00</state>
+					<transfer type="bool">false</transfer>
+				</truck>
+				<truck n="5">
+					<clean type="bool">false</clean>
+					<connect type="bool">false</connect>
+					<enable type="bool">false</enable>
+					<state type="double">0.00</state>
+					<transfer type="bool">false</transfer>
+				</truck>
+			</fuel-truck>
+		</ground-service>
+
+		<weather>
+			<relative-wind type="float">0.00</relative-wind>
+		</weather>
+
+		<hud>
+			<mode type="int">0</mode>
+		</hud>
+
+		<route>
+			<marker n="0" type="string"></marker>
+			<number n="0" type="int"></number>
+			<code n="0" type="string"></code>
+			<title n="0" type="string"></title>
+			<bearing n="0" type="float"></bearing>
+			<distance n="0" type="float"></distance>
+
+			<marker n="1" type="string"></marker>
+			<number n="1" type="int"></number>
+			<code n="1" type="string"></code>
+			<title n="1" type="string"></title>
+			<bearing n="1" type="float"></bearing>
+			<distance n="1" type="float"></distance>
+
+			<marker n="2" type="string"></marker>
+			<number n="2" type="int"></number>
+			<code n="2" type="string"></code>
+			<title n="2" type="string"></title>
+			<bearing n="2" type="float"></bearing>
+			<distance n="2" type="float"></distance>
+
+			<marker n="3" type="string"></marker>
+			<number n="3" type="int"></number>
+			<code n="3" type="string"></code>
+			<title n="3" type="string"></title>
+			<bearing n="3" type="float"></bearing>
+			<distance n="3" type="float"></distance>
+
+			<marker n="4" type="string"></marker>
+			<number n="4" type="int"></number>
+			<code n="4" type="string"></code>
+			<title n="4" type="string"></title>
+			<bearing n="4" type="float"></bearing>
+			<distance n="4" type="float"></distance>
+
+			<marker n="5" type="string"></marker>
+			<number n="5" type="int"></number>
+			<code n="5" type="string"></code>
+			<title n="5" type="string"></title>
+			<bearing n="5" type="float"></bearing>
+			<distance n="5" type="float"></distance>
+
+			<marker n="6" type="string"></marker>
+			<number n="6" type="int"></number>
+			<code n="6" type="string"></code>
+			<title n="6" type="string"></title>
+			<bearing n="6" type="float"></bearing>
+			<distance n="6" type="float"></distance>
+
+			<marker n="7" type="string"></marker>
+			<number n="7" type="int"></number>
+			<code n="7" type="string"></code>
+			<title n="7" type="string"></title>
+			<bearing n="7" type="float"></bearing>
+			<distance n="7" type="float"></distance>
+
+			<marker n="8" type="string"></marker>
+			<number n="8" type="int"></number>
+			<code n="8" type="string"></code>
+			<title n="8" type="string"></title>
+			<bearing n="8" type="float"></bearing>
+			<distance n="8" type="float"></distance>
+
+			<marker n="9" type="string"></marker>
+			<number n="9" type="int"></number>
+			<code n="9" type="string"></code>
+			<title n="9" type="string"></title>
+			<bearing n="9" type="float"></bearing>
+			<distance n="9" type="float"></distance>
+
+			<marker n="10" type="string"></marker>
+			<number n="10" type="int"></number>
+			<code n="10" type="string"></code>
+			<title n="10" type="string"></title>
+			<bearing n="10" type="float"></bearing>
+			<distance n="10" type="float"></distance>
+		</route>
+
+		<engines>
+			<fuel_flow_total_pps type="double">0.00</fuel_flow_total_pps>
+			<airtime type="double">0.00</airtime>
+			<range_nm type="double">0.00</range_nm>
+		</engines>
+
+	</voodoomaster>
+
+
+	<nasal>
+		<shared>
+			<file>Systems/Autopilot/SYS11_0_compatibility.nas</file>
+			<file>Systems/Generic/conversions.nas</file>
+			<file>Systems/Generic/MainControl.nas</file>
+		</shared>
+		<il96>
+			<file>Aircraft/il-96-400/Systems/Settings/Settings.nas</file>
+			<file>Aircraft/il-96-400/Systems/Autostart/Autostart.nas</file>
+			<file>Aircraft/il-96-400/Systems/Pilots/Pilots.nas</file>
+			<file>Aircraft/il-96-400/Systems/Engines/Reverse-Thrust.nas</file>
+			<file>Aircraft/il-96-400/Nasal/Electrical.nas</file>
+			<file>Aircraft/il-96-400/Nasal/light.nas</file>
+			<!--file>Aircraft/il-96-400/Nasal/flightdirector.nas</file-->
+			<file>Aircraft/il-96-400/Nasal/systems.nas</file>
+			<file>Aircraft/il-96-400/Nasal/AFDS.nas</file>
+			<file>Aircraft/il-96-400/Nasal/tyresmoke.nas</file>
+		</il96>
+
+		<gui2>
+			<file>Aircraft/il-96-400/Canvas/Style.nas</file>
+			<file>Aircraft/il-96-400/Canvas/Widget.nas</file>
+			<file>Aircraft/il-96-400/Canvas/widgets/Button.nas</file>
+			<file>Aircraft/il-96-400/Canvas/widgets/Label.nas</file>
+		</gui2>
+
+		<canvas2>
+			<file>Aircraft/il-96-400/Canvas/gui.nas</file>
+			<file>Aircraft/il-96-400/Canvas/DefaultStyle.nas</file>
+		</canvas2>
+        
+		<!--dialogs>
+			<file>Aircraft/il-96-400/Nasal/dialogs.nas</file>
+		</dialogs-->
+	</nasal>
+
+</PropertyList>
