@@ -54,54 +54,46 @@ DefaultStyle.widgets.button = {
 		return me;
 	},
 	
-  update: func(model)
-  {
-    var backdrop = !model._windowFocus();
-    var (w, h) = model._size;
-    var file = me._style._dir_widgets ~ "/";
+	update: func(model) {
+		var backdrop = !model._windowFocus();
+		var (w, h) = model._size;
+		var file = me._style._dir_widgets ~ "/";
 
-    # TODO unify color names with image names
-    var bg_color_name = "button_bg_color";
-    if( backdrop )
-      bg_color_name = "button_backdrop_bg_color";
-    else if( !model._enabled )
-      bg_color_name = "button_bg_color_insensitive";
-    else if( model._down )
-      bg_color_name = "button_bg_color_down";
-    else if( model._hover )
-      bg_color_name = "button_bg_color_hover";
-    me._bg.set("fill", me._style.getColor(bg_color_name));
+		# TODO unify color names with image names
+		var bg_color_name = "button_bg_color";
+		if( backdrop )
+			bg_color_name = "button_backdrop_bg_color";
+		else if( !model._enabled )
+			bg_color_name = "button_bg_color_insensitive";
+		else if( model._down )
+  		    bg_color_name = "button_bg_color_down";
+		else if( model._hover )
+			bg_color_name = "button_bg_color_hover";
+		me._bg.set("fill", me._style.getColor(bg_color_name));
 
-    if( backdrop )
-    {
-      file ~= "backdrop-";
-      me._label.set("fill", me._style.getColor("backdrop_fg_color"));
-    }
-    else
-      me._label.set("fill", me._style.getColor("fg_color"));
-    file ~= "button";
+		if( backdrop ) {
+			file ~= "backdrop-";
+			me._label.set("fill", me._style.getColor("backdrop_fg_color"));
+		} else
+			me._label.set("fill", me._style.getColor("fg_color"));
+		file ~= "button";
 
-    if( model._down )
-    {
-      file ~= "-active";
-      me._label.setTranslation(w / 2 + 1, h / 2 + 6);
-    }
-    else
-      me._label.setTranslation(w / 2, h / 2 + 5);
+		if( model._down ) {
+			file ~= "-active";
+			me._label.setTranslation(w / 2 + 1, h / 2 + 6);
+		} else
+			me._label.setTranslation(w / 2, h / 2 + 5);
 
-    if( model._enabled )
-    {
-      if( model._focused and !backdrop )
-        file ~= "-focused";
+		if( model._enabled ) {
+			if( model._focused and !backdrop )
+				file ~= "-focused";
 
-      if( model._hover and !model._down )
-        file ~= "-hover";
-    }
-    else
-      file ~= "-disabled";
-
-    me._border.set("src", file ~ ".png");
-  }
+			if( model._hover and !model._down )
+				file ~= "-hover";
+		} else
+			file ~= "-disabled";
+		me._border.set("src", file ~ ".png");
+	}
 };
 
 # A checkbox

@@ -82,7 +82,7 @@
 		
 		<pointmass name="Cockpit Crew">
 			<description>Cockpit Crew, incl. opt. 3rd person</description>
-			<weight unit="LBS">  660 </weight>
+			<weight unit="LBS">  600 </weight>
 			<location name="POINTMASS" unit="IN">
 				<x> 36.00 </x>
 				<y>   0.00 </y>
@@ -92,7 +92,7 @@
 	
 		<pointmass name="Cabin Crew 1st Class">
 			<description>2 flight attendants</description>
-			<weight unit="LBS">  440 </weight>
+			<weight unit="LBS">  400 </weight>
 			<location name="POINTMASS" unit="IN">
 				<x> 1384.35 </x>
 				<y>   0.00 </y>
@@ -102,7 +102,7 @@
 	
 		<pointmass name="Pax 1st Class">
 			<description>24 passengers</description>
-			<weight unit="LBS">5280</weight>
+			<weight unit="LBS">4800</weight>
 			<location name="POINTMASS" unit="IN">
 				<x> 1384.35 </x>
 				<y>   0.00 </y>
@@ -112,7 +112,7 @@
 	
 		<pointmass name="Cabin Crew Business Class">
 			<description>2 flight attendants</description>
-			<weight unit="LBS">  440 </weight>
+			<weight unit="LBS">  400 </weight>
 			<location name="POINTMASS" unit="IN">
 				<x> 1384.35 </x>
 				<y>   0.00 </y>
@@ -122,7 +122,7 @@
 	
 		<pointmass name="Pax Business Class">
 			<description>66 passengers</description>
-			<weight unit="LBS">14520</weight>
+			<weight unit="LBS">13400</weight>
 			<location name="POINTMASS" unit="IN">
 				<x> 1384.35 </x>
 				<y>   0.00 </y>
@@ -132,7 +132,7 @@
 	
 		<pointmass name="Cabin Crew Economy Section I">
 			<description>3 flight attendants</description>
-			<weight unit="LBS">  660 </weight>
+			<weight unit="LBS">  600 </weight>
 			<location name="POINTMASS" unit="IN">
 				<x> 1384.35 </x>
 				<y>   0.00 </y>
@@ -142,7 +142,7 @@
 	
 		<pointmass name="Pax Economy Section I">
 			<description>171 passengers</description>
-			<weight unit="LBS">37620</weight>
+			<weight unit="LBS">34200</weight>
 			<location name="POINTMASS" unit="IN">
 				<x> 1384.35 </x>
 				<y>   0.00 </y>
@@ -152,7 +152,7 @@
 	
 		<pointmass name="Cabin Crew Economy Section II">
 			<description>3 flight attendants</description>
-			<weight unit="LBS">  660 </weight>
+			<weight unit="LBS">  600 </weight>
 			<location name="POINTMASS" unit="IN">
 				<x> 1384.35 </x>
 				<y>   0.00 </y>
@@ -162,7 +162,7 @@
 	
 		<pointmass name="Pax Economy Section II">
 			<description>89 passengers</description>
-			<weight unit="LBS">19580</weight>
+			<weight unit="LBS">17800</weight>
 			<location name="POINTMASS" unit="IN">
 				<x> 1384.35 </x>
 				<y>   0.00 </y>
@@ -171,8 +171,8 @@
 		</pointmass> 
 	
 		<pointmass name="Luggage and Cargo">
-			<description>16 LD3 containers, up to 1312.4 lbs ea.</description>
-			<weight unit="LBS">21000</weight>
+			<description>16 LD3 containers, up to 3500 lbs ea.</description>
+			<weight unit="LBS">56000</weight>
 			<location name="POINTMASS" unit="IN">
 				<x> 1384.35 </x>
 				<y>   0.00 </y>

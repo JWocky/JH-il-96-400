@@ -12,7 +12,7 @@ var AutostartDialog = {
 		};
 
 		m._dlg.set("title", "Autostart");
-		m._dlg.getCanvas(1).set("background", "#ffffff");
+		m._dlg.getCanvas(1).set("background", canvas2.style.getColor("bg_color"));
 		m._root = m._dlg.getCanvas().createGroup();
  
 		var vbox = canvas.VBoxLayout.new();
@@ -21,16 +21,16 @@ var AutostartDialog = {
 		var sname = "...";
 		var hbox=canvas.HBoxLayout.new();
 		vbox.addItem(hbox);
-		me.line=canvas.gui.widgets.Label.new(m._root, canvas.style, {});
+		me.line=gui2.Label.new(m._root, canvas2.style, {});
 		me.line.setText(sname);
 		hbox.addItem(me.line);
-		me.statuslabel=canvas.gui.widgets.Label.new(m._root, canvas.style, {});
+		me.statuslabel=gui2.Label.new(m._root, canvas2.style, {});
 		me.statuslabel.setText("...");
 		hbox.addItem(me.statuslabel);
 
 		var hbox2=canvas.HBoxLayout.new();
 		vbox.addItem(hbox2);
-		btnClose=canvas.gui.widgets.Button.new( m._root, canvas.style, {}).setText("Close Window");
+		btnClose=canvas.gui.widgets.Button.new( m._root, canvas2.style, {}).setText("Close Window");
 		btnClose.listen("clicked", func{
 			m._dlg.del();
 		});

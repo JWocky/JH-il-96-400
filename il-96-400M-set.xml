@@ -13,7 +13,7 @@
         	<author>Petar Jedvaj (original FGUK package)</author>
 	        <author>Peter Brendt aka JWocky (for the private rebuild)</author>
 		
-		<aircraft-version>V03.00.00</aircraft-version>
+		<aircraft-version>V03.00.57</aircraft-version>
 		<minimum-fg-version>2018.2.1</minimum-fg-version>
 
 		<!-- Status was "PROD" for the FGU package despite cockpit bugs and missed specs, this is just at the start -->
@@ -547,7 +547,7 @@
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]" />
 			<weight-type type="string">crew</weight-type>
 			<min-lb>0</min-lb>
-			<max-lb>660</max-lb>
+			<max-lb>600</max-lb>
 		</weight>
 
 		<weight n="1">
@@ -555,7 +555,7 @@
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]" />
 			<weight-type type="string">crew</weight-type>
 			<min-lb>0</min-lb>
-			<max-lb>440</max-lb>
+			<max-lb>400</max-lb>
 		</weight>
 
 		<weight n="2">
@@ -563,7 +563,7 @@
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]" />
 			<weight-type type="string">crew</weight-type>
 			<min-lb>0</min-lb>
-			<max-lb>5280</max-lb>
+			<max-lb>4800</max-lb>
 		</weight>
 
 		<weight n="3">
@@ -571,15 +571,15 @@
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[3]" />
 			<weight-type type="string">crew</weight-type>
 			<min-lb>0</min-lb>
-			<max-lb>440</max-lb>
+			<max-lb>400</max-lb>
 		</weight>
 
 		<weight n="4">
-			<name>Pax Business Class(24 pers.)</name>
+			<name>Pax Business Class(66 pers.)</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[4]" />
 			<weight-type type="string">crew</weight-type>
 			<min-lb>0</min-lb>
-			<max-lb>14520</max-lb>
+			<max-lb>13400</max-lb>
 		</weight>
 
 		<weight n="5">
@@ -587,7 +587,7 @@
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[5]" />
 			<weight-type type="string">crew</weight-type>
 			<min-lb>0</min-lb>
-			<max-lb>440</max-lb>
+			<max-lb>600</max-lb>
 		</weight>
 
 		<weight n="6">
@@ -595,7 +595,7 @@
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[6]" />
 			<weight-type type="string">crew</weight-type>
 			<min-lb>0</min-lb>
-			<max-lb>37620</max-lb>
+			<max-lb>34200</max-lb>
 		</weight>
 
 		<weight n="7">
@@ -603,7 +603,7 @@
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[7]" />
 			<weight-type type="string">crew</weight-type>
 			<min-lb>0</min-lb>
-			<max-lb>440</max-lb>
+			<max-lb>600</max-lb>
 		</weight>
 
 		<weight n="8">
@@ -611,15 +611,15 @@
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[8]" />
 			<weight-type type="string">crew</weight-type>
 			<min-lb>0</min-lb>
-			<max-lb>19580</max-lb>
+			<max-lb>17800</max-lb>
 		</weight>
 
 		<weight n="9">
-			<name>Lugagge/Cargo(89 pers.)</name>
+			<name>Lugagge/Cargo(16 x LD3)</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[9]" />
 			<weight-type type="string">crew</weight-type>
 			<min-lb>0</min-lb>
-			<max-lb>21000</max-lb>
+			<max-lb>56000</max-lb>
 		</weight>
 
 	</payload>
