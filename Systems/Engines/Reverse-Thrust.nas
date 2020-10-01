@@ -2,7 +2,7 @@ togglereverser = func(eng) {
 	if (getprop("controls/engines/engine["~eng~"]/throttle")<0.1) {
 		if (getprop("engines/engine["~eng~"]/reverser")) {
 			setprop("fdm/jsbsim/propulsion/engine["~eng~"]/reverser-angle-rad", 3.14);
-			setprop("engines/engine["~eng~"]/reverser_pos_morm", 1.00);
+			setprop("engines/engine["~eng~"]/reverser_pos_norm", 1.00);
 		} else {
 			setprop("fdm/jsbsim/propulsion/engine["~eng~"]/reverser-angle-rad", 0.00);
 			setprop("engines/engine["~eng~"]/reverser_pos_norm", 0.00);

@@ -12,40 +12,56 @@ var initialize=func() {
 }
 
 var sync_units_ft=func() {
+	var sys_units=getprop("voodoomaster/units");
 	var valuetarget=getprop("autopilot/settings/target-altitude-ft");
 	if (valuetarget!=nil) {
-		setprop("autopilot/settings/target-altitude-m", valuetarget*0.3048);
+		if (sys_units=="metric") {
+ 			setprop("autopilot/settings/target-altitude-m", valuetarget/0.3048);
+ 		}
 	}
 
 	var valuemin=getprop("autopilot/internal/min-alt-ft");
 	if (valuemin!=nil) {
-		setprop("autopilot/internal/min-alt-m", valuemin*0.3048);
+		if (sys_units=="metric") {
+ 			setprop("autopilot/internal/min-alt-m", valuemin/0.3048);
+ 		}
 	}
 }
 
 var sync_units_buffered_ft=func() {
+	var sys_units=getprop("voodoomaster/units");
 	var valuebuffered=getprop("autopilot/settings/buffered-altitude-ft");
 	if (valuebuffered!=nil) {
-		setprop("autopilot/settings/buffered-altitude-m", valuebuffered*0.3048);
+		if (sys_units=="metric") {
+			setprop("autopilot/settings/buffered-altitude-m", valuebuffered/0.3048);
+		}
 	}
 }
 
 var sync_units_m=func() {
+	var sys_units=getprop("voodoomaster/units");
 	var valuetarget=getprop("autopilot/settings/target-altitude-m");
 	if (valuetarget!=nil) {
-		setprop("autopilot/settings/target-altitude-ft", valuetarget/0.3048);
+		if (sys_units=="imperial") {
+			setprop("autopilot/settings/target-altitude-ft", valuetarget/0.3048);
+		}
 	}
 
 	var valuemin=getprop("autopilot/internal/min-alt-m");
 	if (valuemin!=nil) {
-		setprop("autopilot/internal/min-alt-ft", valuemin/0.3048);
+		if (sys_units=="imperial") {
+			setprop("autopilot/internal/min-alt-ft", valuemin/0.3048);
+		}
 	}
 }
 
 var sync_units_buffered_m=func() {
+	var sys_units=getprop("voodoomaster/units");
 	var valuebuffered=getprop("autopilot/settings/buffered-altitude-m");
 	if (valuebuffered!=nil) {
-		setprop("autopilot/settings/buffered-altitude-ft", valuebuffered/0.3048);
+		if (sys_units=="imperial") {
+			setprop("autopilot/settings/buffered-altitude-ft", valuebuffered/0.3048);
+		}
 	}
 }
 

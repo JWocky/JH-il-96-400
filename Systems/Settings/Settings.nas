@@ -44,6 +44,7 @@ var SettingsDialog = {
 			var line=gui2.Label.new(m._root, canvas2.style, {});
 			line.setBackground("#ddddd00");
 			line.setText(sname);
+########			line.getContent().set("character-size", 16);
 			hbox.addItem(line);
 			var scurrent = s.getNode("current", 1).getValue();
 			for (var j=0; j<size(options); j+=1) {

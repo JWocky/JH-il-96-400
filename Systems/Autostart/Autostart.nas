@@ -7,8 +7,8 @@ var AutostartDialog = {
 
 	new: func(width=450,height=160) {
 		var m = {
-			parents: [il96.SettingsDialog],
-			_dlg: canvas.Window.new([width, height], "Autostart")
+			parents: [shared.SettingsDialog],
+			_dlg: canvas2.Window.new([width, height], "Autostart")
 		};
 
 		m._dlg.set("title", "Autostart");
@@ -327,13 +327,24 @@ print("SHUTDOWN");
 	batstart: func {
 print("BATSTART");
 		setprop("controls/electric/battery-switch",1);
+		setprop("controls/electric/avionics-switch",1);
+		setprop("controls/lighting/instrument-norm",0.8);
+		setprop("controls/lighting/nav-lights",1);
+		setprop("controls/lighting/beacon",1);
+		setprop("controls/lighting/strobe",1);
+		setprop("controls/lighting/wing-lights",1);
+		setprop("controls/lighting/taxi-lights",1);
+		setprop("controls/lighting/logo-lights",1);
+		setprop("controls/lighting/cabin-lights",1);
+		setprop("controls/lighting/landing-lights",1);
 		setprop("voodoomaster/internal/message-switcher", "System on battery, starting APU!");
 	},
 
 	apustart0: func {
 print("APU1START");
 		setprop("controls/APU/off-start-run", 1);
-		setprop("controls/electric/APU-generator", 1);
+		setprop("controls/electric/APU-generator",1);
+		setprop("controls/electric/inverter-switch",1);
 		setprop("voodoomaster/internal/message-switcher", "APU1 starting!");
 	},
 

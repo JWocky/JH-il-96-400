@@ -18,12 +18,18 @@ var PilotsDialog = {
 	new: func(width=340,height=160) {
 		var m = {
 			parents: [SettingsDialog],
-			_dlg: canvas.Window.new([width, height], "Pilots")
+			_dlg: canvas2.Window.new([width, height], "Pilots")
 		};
 
 		m._dlg.getCanvas(1)
-		.set("background", canvas.style.getColor("bg_color"));
+		.set("background", canvas2.style.getColor("bg_color"));
 		m._root = m._dlg.getCanvas().createGroup();
+ 
+ 
+		m._dlg.setTitle("Pilot Options");
+		m._dlg.getCanvas(1).set("background", canvas2.style.getColor("bg_color"));
+		m._root = m._dlg.getCanvas().createGroup();
+
  
 		var vbox = canvas.VBoxLayout.new();
 		m._dlg.setLayout(vbox);
@@ -42,7 +48,7 @@ var PilotsDialog = {
 			var sname = s.getNode("name", 1).getValue();
 			var hbox=canvas.HBoxLayout.new();
 			vbox.addItem(hbox);
-			var line=canvas.gui.widgets.Label.new(m._root, canvas.style, {});
+			var line=gui2.Label.new(m._root, canvas2.style, {});
 			line.setText(sname);
 			hbox.addItem(line);
 			var scurrent = s.getNode("current", 1).getValue();
@@ -51,7 +57,7 @@ var PilotsDialog = {
 			for (var j=0; j<size(options); j+=1) {
 				var o=options[j];
 				var action=o.getNode("name", 1).getValue();
-				me.buttons[i][j]=canvas.gui.widgets.Button.new(m._root, canvas.style, {}).setText(o.getNode("name", 1).getValue());
+				me.buttons[i][j]=canvas.gui.widgets.Button.new(m._root, canvas2.style, {}).setText(o.getNode("name", 1).getValue());
 				me.buttons[i][j].setCheckable(1);
 				if (j==scurrent) {
 					me.buttons[i][j].setChecked(1);

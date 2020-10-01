@@ -39,7 +39,7 @@ DefaultStyle.widgets.button = {
     me._label =
       me._root.createChild("text")
               .set("font", "LiberationFonts/LiberationSans-Regular.ttf")
-              .set("character-size", 14)
+              .set("character-size", 20)
               .set("alignment", "center-baseline");
   },
   setSize: func(model, w, h)
@@ -119,7 +119,7 @@ DefaultStyle.widgets.checkbox = {
     me._label =
       me._root.createChild("text")
               .set("font", "LiberationFonts/LiberationSans-Regular.ttf")
-              .set("character-size", 14)
+              .set("character-size", 20)
               .set("alignment", "left-center");
   },
   setSize: func(model, w, h)
@@ -177,6 +177,8 @@ DefaultStyle.widgets.label = {
   {
     me._root = parent.createChild("group", "label");
   },
+
+
   setSize: func(model, w, h)
   {
     if( me['_bg'] != nil )
@@ -204,7 +206,9 @@ DefaultStyle.widgets.label = {
     }
 
     me._createElement("text", "text")
-      .set("text", text);
+      .set("text", text)
+              .set("font", "LiberationFonts/LiberationSans-Regular.ttf")
+              .set("character-size", 20);
 
     var hfw_func = nil;
     var min_width = me._text.maxWidth() + 4;

@@ -14,6 +14,11 @@ gui2.Label = {
 		return me;
 	},
 	
+	setFontSize: func(fsize, aspect) {
+		me._view.setFontSize(fsize, aspect);
+		return me;
+	},
+	
 	setImage: func(img) {
 		me._view.setImage(me, img);
 		return me;

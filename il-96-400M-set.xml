@@ -398,7 +398,7 @@
 						<binding>
 						<command>nasal</command>
 							<script>
-								var settings_dialog = il96.SettingsDialog.new(1740, 320);
+								var settings_dialog = shared.SettingsDialog.new(1740, 320);
 							</script>
 						</binding>
 					</item>
@@ -409,7 +409,7 @@
 						<binding>
 							<command>nasal</command>
 							<script>
-								var autostart_dialog = il96.AutostartDialog.new();
+								var autostart_dialog = shared.AutostartDialog.new(1740, 210);
 							</script>
 						</binding>
 						<binding>
@@ -423,19 +423,29 @@
 						<binding>
 							<command>nasal</command>
 							<script>
-								var pilots_dialog = il96.PilotsDialog.new();
+								var pilots_dialog = shared.PilotsDialog.new(1740, 320);
 							</script>
 						</binding>
 					</item>
 
-					<item >
+					<item>
+						<label>Puhback</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+								var pushback_dialog = shared.PushbackDialog.new(1740, 320);
+							</script>
+						</binding>
+					</item>
+
+					<!--item >
 						<label>Pushback</label>
 						<name>pushback</name>
 						<binding>
 							<command>dialog-show</command>
 							<dialog-name>pushback</dialog-name>
 						</binding>
-					</item>
+					</item -->
 					
 					<item>
 						<label>Select Livery</label>
@@ -476,19 +486,35 @@
 		<engine-set type="string">PS-90A1</engine-set>
 		<engine n="0">
 			<reverser type="bool">false</reverser>
-			<reverser-position type="double">0.000000</reverser-position>
+			<reverser-pos-norm type="double">0.000000</reverser-pos-norm>
 		</engine>     
 		<engine n="1">
 			<reverser type="bool">false</reverser>
-			<reverser-position type="double">0.000000</reverser-position>
+			<reverser-pos-norm type="double">0.000000</reverser-pos-norm>
 		</engine> 
 		<engine n="2">
 			<reverser type="bool">false</reverser>
-			<reverser-position type="double">0.000000</reverser-position>
+			<reverser-pos-norm type="double">0.000000</reverser-pos-norm>
 		</engine>
 		<engine n="3">
 			<reverser type="bool">false</reverser>
-			<reverser-position type="double">0.000000</reverser-position>
+			<reverser-pos-norm type="double">0.000000</reverser-pos-norm>
+		</engine>
+		<engine n="4">
+			<reverser type="bool">false</reverser>
+			<reverser-pos-norm type="double">0.000000</reverser-pos-norm>
+		</engine>     
+		<engine n="5">
+			<reverser type="bool">false</reverser>
+			<reverser-pos-norm type="double">0.000000</reverser-pos-norm>
+		</engine> 
+		<engine n="6">
+			<reverser type="bool">false</reverser>
+			<reverser-pos-norm type="double">0.000000</reverser-pos-norm>
+		</engine>
+		<engine n="7">
+			<reverser type="bool">false</reverser>
+			<reverser-pos-norm type="double">0.000000</reverser-pos-norm>
 		</engine>
 	</engines>
 
@@ -879,6 +905,14 @@
 	</instrumentation>
 
 	<controls>
+		<lighting>
+			<strobe type="bool">
+				true
+			</strobe>
+			<beacon type="bool">
+				true
+			</beacon>
+		</lighting>
 		<gear>
 			<brake-parking type="bool">1</brake-parking>
 		</gear>
@@ -948,6 +982,7 @@
 			<min-pitch type="float">-6.0</min-pitch>
 			<min-alt-ft type="int">1000</min-alt-ft>
 			<min-alt-m type="int">305</min-alt-m>
+			<turn_gain type="double">-4.0</turn_gain>
 		</internal>
                 <locks>
                        <heading type="string"></heading>
@@ -1073,28 +1108,28 @@
 				<options>
 					<opt>
 						<name type="string">400M</name>
-						<pkey type="string">/voodoomaster/cockpit/style</pkey>
-						<value type="string">Original</value>
+						<pkey type="string">/voodoomaster/variant</pkey>
+						<value type="string">400M</value>
 					</opt>
 					<opt>
 						<name type="string">400MPU</name>
-						<pkey type="string">/voodoomaster/cockpit/style</pkey>
-						<value type="string">GenClassic</value>
+						<pkey type="string">/voodoomaster/variant</pkey>
+						<value type="string">400MPU</value>
 					</opt>
 					<opt>
 						<name type="string">400MPUM</name>
-						<pkey type="string">/voodoomaster/cockpit/style</pkey>
-						<value type="string">Experimental</value>
+						<pkey type="string">/voodoomaster/variant</pkey>
+						<value type="string">400MPUM</value>
 					</opt>
 					<opt>
 						<name type="string">400T</name>
-						<pkey type="string">/voodoomaster/cockpit/style</pkey>
-						<value type="string">Experimental</value>
+						<pkey type="string">/voodoomaster/variant</pkey>
+						<value type="string">400T</value>
 					</opt>
 					<opt>
 						<name type="string">400TZ</name>
-						<pkey type="string">/voodoomaster/cockpit/style</pkey>
-						<value type="string">Experimental</value>
+						<pkey type="string">/voodoomaster/variant</pkey>
+						<value type="string">400TZ</value>
 					</opt>
 				</options>
 			</setting>
@@ -1281,13 +1316,14 @@
 			<file>Systems/Autopilot/SYS11_0_compatibility.nas</file>
 			<file>Systems/Generic/conversions.nas</file>
 			<file>Systems/Generic/MainControl.nas</file>
-		</shared>
-		<il96>
 			<file>Aircraft/il-96-400/Systems/Settings/Settings.nas</file>
 			<file>Aircraft/il-96-400/Systems/Autostart/Autostart.nas</file>
 			<file>Aircraft/il-96-400/Systems/Pilots/Pilots.nas</file>
+			<file>Aircraft/il-96-400/Systems/Pushback/Pushback.nas</file>
+			<file>Aircraft/il-96-400/Systems/Electrical/Electrical.nas</file>
 			<file>Aircraft/il-96-400/Systems/Engines/Reverse-Thrust.nas</file>
-			<file>Aircraft/il-96-400/Nasal/Electrical.nas</file>
+		</shared>
+		<il96>
 			<file>Aircraft/il-96-400/Nasal/light.nas</file>
 			<!--file>Aircraft/il-96-400/Nasal/flightdirector.nas</file-->
 			<file>Aircraft/il-96-400/Nasal/systems.nas</file>

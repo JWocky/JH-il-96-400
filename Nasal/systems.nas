@@ -328,14 +328,14 @@ setlistener("/sim/current-view/internal", func(vw){
     }
 },1,0);
 
-setlistener("/sim/model/start-idling", func(idle){
-    var run= idle.getBoolValue();
-    if(run){
-    Startup();
-    }else{
-    Shutdown();
-    }
-},0,0);
+#setlistener("/sim/model/start-idling", func(idle){
+ #   var run= idle.getBoolValue();
+  #  if(run){
+   # Startup();
+    #}else{
+#    Shutdown();
+#    }
+#},0,0);
 
 controls.gearDown = func(v) {
     if (v < 0) {
