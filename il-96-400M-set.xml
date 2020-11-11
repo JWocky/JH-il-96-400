@@ -16,7 +16,6 @@
 		<aircraft-version>V03.00.57</aircraft-version>
 		<minimum-fg-version>2018.2.1</minimum-fg-version>
 
-		<!-- Status was "PROD" for the FGU package despite cockpit bugs and missed specs, this is just at the start -->
 	        <status>Alpha</status>
 
 
@@ -36,16 +35,15 @@
 		</startup>
 
 		<model>
-			<path>Aircraft/il-96-400/Models/il-96-400.xml</path>
-			<!--livery>
+			<path>Aircraft/JH-il-96-400/Models/il-96-400.xml</path>
+			<livery>
 				<file type="string">BA</file>
 			</livery>
 			<lights>
 				<file type="string">BA</file>
-			</lights-->
+			</lights>
 			<armrest type="double">0</armrest>
 
-			<!-- JPack: push forces for Voodoomaster Pushback -->
 			<pushback>
 				<kp type="double">4000</kp>
 				<ki type="double">150</ki>
@@ -55,17 +53,13 @@
 			</pushback>
 		</model>
 
-		<!-- Subsection for submodels if submodels exist -->
-
-		<!-- basic startup settings for sim -->
 		<freeze>
-			<fuel>false</fuel>	<!-- false is default, only here for quick change while testing -->
+			<fuel>false</fuel>
 		</freeze>
 
 		<gui>
 			<dialogs>
 				<autopilot>
-					<!-- speed in kts for SYS7/8/9 APs -->
 					<kts-select type="bool">true</kts-select>
 					<mach-select tpye="bool">false</mach-select>
 				</autopilot>
@@ -84,9 +78,9 @@
 
 		<virtual-cockpit archive="y">true</virtual-cockpit>
 
-		<!-- instrumentation>
+		<instrumentation>
 			<path>Systems/instrumentation.xml</path>
-		</instrumentation-->
+		</instrumentation>
 
 		<airport>
 			<runways>
@@ -97,13 +91,7 @@
 		<chase-distance-m>-100</chase-distance-m>
 
 		<systems>
-			<path>Aircraft/il-96-400/Systems/systems.xml</path>
-			<!--autopilot>
-				<path>Systems/il-96-400-autopilot.xml</path>
-			</autopilot -->
-			<autopilot>
-				<path>Systems/Autopilot/SYS11_0_autopilot.xml</path>
-			</autopilot>
+			<path>Aircraft/JH-il-96-400/Systems/systems.xml</path>
 		</systems>
 
 		<flaps>
@@ -350,17 +338,7 @@
 			</clipping>
 		</hud>
 
-		<help>
-			<title>il-96-400M</title>
-			<key>
-				<name>Delete</name>
-				<desc>toggle thrust reversers</desc>
-			</key>
-			<key>
-				<name>Ctrl-b</name>
-				<desc>toggle speed brakes</desc>
-			</key>
-		</help>
+
 
 		<menubar>
 			<default>
@@ -824,10 +802,10 @@
 			<lightning type="bool" archive="y">true</lightning>
 			<display-mode type="string" archive="y">arc</display-mode>
 			<radar-texture-path type="string" archive="y">
-				Aircraft/il-96-400/Models/Instruments/MFD/od_wxradar.png
+				Aircraft/JH-il-96-400/Models/Instruments/MFD/od_wxradar.png
 			</radar-texture-path>
 			<echo-texture-path type="string" archive="y">
-				Aircraft/il-96-400/Models/Instruments/MFD/wxecho.png
+				Aircraft/JH-il-96-400/Models/Instruments/MFD/wxecho.png
 			</echo-texture-path>
 			<minimized type="bool" archive="y">false</minimized>
 			<heading-marker type="bool" archive="y">true</heading-marker>
@@ -993,11 +971,6 @@
 	<!-- Voodoomaster plane specific initializations -->
 	<voodoomaster>
 
-		<dialogs>
-			<fuel-and-payload type="string">Antonov An-124 Weight and Fuel</fuel-and-payload>
-			<system-settings type="string">Antonov An-124 System Settings</system-settings>
-		</dialogs>
-
 		<internal>
 			<message-header type="string">...</message-header>
 			<message-switcher type="string">...</message-switcher>
@@ -1104,7 +1077,7 @@
 
 			<setting>
 				<name type="string">Variants</name>
-				<current type="int">1</current>
+				<current type="int">0</current>
 				<options>
 					<opt>
 						<name type="string">400M</name>
@@ -1313,39 +1286,30 @@
 
 	<nasal>
 		<shared>
-			<file>Systems/Autopilot/SYS11_0_compatibility.nas</file>
-			<file>Systems/Generic/conversions.nas</file>
-			<file>Systems/Generic/MainControl.nas</file>
-			<file>Aircraft/il-96-400/Systems/Settings/Settings.nas</file>
-			<file>Aircraft/il-96-400/Systems/Autostart/Autostart.nas</file>
-			<file>Aircraft/il-96-400/Systems/Pilots/Pilots.nas</file>
-			<file>Aircraft/il-96-400/Systems/Pushback/Pushback.nas</file>
-			<file>Aircraft/il-96-400/Systems/Electrical/Electrical.nas</file>
-			<file>Aircraft/il-96-400/Systems/Engines/Reverse-Thrust.nas</file>
+			<file>Aircraft/JH-il-96-400/Systems/Settings/Settings.nas</file>
+			<file>Aircraft/JH-il-96-400/Systems/Autostart/Autostart.nas</file>
+			<file>Aircraft/JH-il-96-400/Systems/Pilots/Pilots.nas</file>
+			<file>Aircraft/JH-il-96-400/Systems/Pushback/Pushback.nas</file>
+			<file>Aircraft/JH-il-96-400/Systems/Electrical/Electrical.nas</file>
+			<file>Aircraft/JH-il-96-400/Systems/Engines/Reverse-Thrust.nas</file>
 		</shared>
 		<il96>
-			<file>Aircraft/il-96-400/Nasal/light.nas</file>
-			<!--file>Aircraft/il-96-400/Nasal/flightdirector.nas</file-->
-			<file>Aircraft/il-96-400/Nasal/systems.nas</file>
-			<file>Aircraft/il-96-400/Nasal/AFDS.nas</file>
-			<file>Aircraft/il-96-400/Nasal/tyresmoke.nas</file>
+			<file>Aircraft/JH-il-96-400/Nasal/light.nas</file>
+			<file>Aircraft/JH-il-96-400/Nasal/AFDS.nas</file>
+			<file>Aircraft/JH-il-96-400/Nasal/tyresmoke.nas</file>
 		</il96>
 
 		<gui2>
-			<file>Aircraft/il-96-400/Canvas/Style.nas</file>
-			<file>Aircraft/il-96-400/Canvas/Widget.nas</file>
-			<file>Aircraft/il-96-400/Canvas/widgets/Button.nas</file>
-			<file>Aircraft/il-96-400/Canvas/widgets/Label.nas</file>
+			<file>Aircraft/JH-il-96-400/Canvas/Style.nas</file>
+			<file>Aircraft/JH-il-96-400/Canvas/Widget.nas</file>
+			<file>Aircraft/JH-il-96-400/Canvas/widgets/Button.nas</file>
+			<file>Aircraft/JH-il-96-400/Canvas/widgets/Label.nas</file>
 		</gui2>
 
 		<canvas2>
-			<file>Aircraft/il-96-400/Canvas/gui.nas</file>
-			<file>Aircraft/il-96-400/Canvas/DefaultStyle.nas</file>
+			<file>Aircraft/JH-il-96-400/Canvas/gui.nas</file>
+			<file>Aircraft/JH-il-96-400/Canvas/DefaultStyle.nas</file>
 		</canvas2>
-        
-		<!--dialogs>
-			<file>Aircraft/il-96-400/Nasal/dialogs.nas</file>
-		</dialogs-->
-	</nasal>
+        </nasal>
 
 </PropertyList>

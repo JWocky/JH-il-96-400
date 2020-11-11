@@ -1,6 +1,6 @@
 <!-- 
 il-96-400 by Xsaint
-compltely reworked by JWocky
+completely reworked by JWocky
 -->
 
 <PropertyList>
@@ -16,9 +16,6 @@ compltely reworked by JWocky
 			livery_update.stop();
 		</unload>
 	</nasal>
-
-
-
 
 
 	<animation>
@@ -69,8 +66,7 @@ compltely reworked by JWocky
 
 
 
-
-	<model>
+<model>
 		<name>flightdeck</name>
 		<path>Aircraft/il-96-400/Models/flightdeck.xml</path>
 		<offsets>
