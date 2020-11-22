@@ -24,16 +24,16 @@
 
 	<predict-simple>
 		<name>predicted altitude 5 seconds ahead</name>
-		<debug>false</debug>
+		<debugtrue</debug>
 		<input>/position/altitude-ft</input>
 		<output>/autopilot/internal/altitude-5-sec-ahead</output>
-		<seconds>6.0</seconds>
+		<seconds>5.0</seconds>
 		<filter-gain>0.1</filter-gain>
 	</predict-simple>
 
 	<predict-simple>
 		<name>predicted altitude 60 seconds ahead</name>
-		<debug>false</debug>
+		<debugtrue</debug>
 		<input>/position/altitude-ft</input>
 		<output>/autopilot/internal/altitude-60-sec-ahead</output>
 		<seconds>60.0</seconds>

@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<?xml-stylesheet type="text/xsl" href="http://jsbsim.sourceforge.net/JSBSim.xsl"?>
+lift<?xml-stylesheet type="text/xsl" href="http://jsbsim.sourceforge.net/JSBSim.xsl"?>
 <fdm_config name="Il-96-400M" version="2.0" release="ALPHA"
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
@@ -63,6 +62,7 @@
 		<location name="VRP" unit="IN">
 			<x>0</x>
 			<y>0</y>
+			<z>0</z>
 		</location>
 	
 	</metrics>
@@ -189,8 +189,8 @@
 				<y>   0.00 </y>
 				<z> -244.24 </z>
 			</location>
-			<static_friction>  0.50 </static_friction>
-			<dynamic_friction> 0.25 </dynamic_friction>
+			<static_friction>  0.80 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
 			<rolling_friction> 0.01 </rolling_friction>
 			<spring_coeff unit="LBS/FT">      175050.00 </spring_coeff>
 			<damping_coeff unit="LBS/FT/SEC"> 87525.00 </damping_coeff>
@@ -205,8 +205,8 @@
 				<y> -213.03 </y>
 				<z> -252.24 </z>
 			</location>
-			<static_friction>  0.50 </static_friction>
-			<dynamic_friction> 0.25 </dynamic_friction>
+			<static_friction>  0.80 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
 			<rolling_friction> 0.01 </rolling_friction>
 			<max_steer unit="DEG">0</max_steer>
 			<brake_group>LEFT</brake_group>
@@ -219,9 +219,9 @@
 				<y> 0.00 </y>
 				<z> -254.24 </z>
 			</location>
-			<static_friction>  0.50 </static_friction>
-			<dynamic_friction> 0.25 </dynamic_friction>
-			<rolling_friction> 0.01 </rolling_friction>
+			<static_friction>  0.80 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
+			<rolling_friction> 0.02 </rolling_friction>
 			<spring_coeff unit="LBS/FT">      583500.00 </spring_coeff>
 			<damping_coeff unit="LBS/FT/SEC"> 291750.00 </damping_coeff>
 			<max_steer unit="DEG">0</max_steer>
@@ -235,9 +235,9 @@
 				<y> 213.03 </y>
 				<z> -254.24 </z>
 			</location>
-			<static_friction>  0.50 </static_friction>
-			<dynamic_friction> 0.25 </dynamic_friction>
-			<rolling_friction> 0.01 </rolling_friction>
+			<static_friction>  0.80 </static_friction>
+			<dynamic_friction> 0.50 </dynamic_friction>
+			<rolling_friction> 0.02 </rolling_friction>
 		<spring_coeff unit="LBS/FT">      583500.00 </spring_coeff>
 			<damping_coeff unit="LBS/FT/SEC"> 291750.00 </damping_coeff>
 			<max_steer unit="DEG">0</max_steer>
@@ -639,29 +639,27 @@
 	</flight_control>
 
 	<aerodynamics>
-Lift		<axis name="LIFT">
+			<axis name="LIFT">
 
-			<function name="aero/force/Lift_alpha">
+<function name="aero/force/Lift_alpha">
 				<description>Lift due to alpha</description>
 				<product>
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<table>
 				        	<independentVar lookup="row">aero/alpha-rad</independentVar>
-						<product>
-							<tableData>
-								-0.20 -0.998
-								 0.00  0.470
-								 0.23  1.570
-						 		 0.60  0.998
-					<value> 1.25000 </value>
+						<tableData>
+							-0.20 -0.968
+							 0.00  0.440
+							 0.23  1.540
+					 		 0.60  0.968
 						</tableData>
-						</product>
 					</table>
+					<value> 1.2500 </value>
 				</product>
 			</function>
-
-			<function name="aero/force/Lift_flap">
+			
+				<function name="aero/force/Lift_flap">
 				<description>Delta Lift due to flaps</description>
 				<product>
 					<property>aero/qbar-psf</property>
@@ -709,7 +707,7 @@ Lift		<axis name="LIFT">
 							 0.26    0.092
 							 1.57    1.570
 						</tableData>
-					<value> 0.1.250 </value>
+					<value> 0.1.150 </value>
 					</table>
 				</product>
 			</function>
@@ -758,7 +756,7 @@ Lift		<axis name="LIFT">
 					<property>metrics/Sw-sqft</property>
 					<property>gear/gear-pos-norm</property>
 					<value> 0.00200 </value>
-</product>
+				</product>
 			</function>
 
 			<function name="aero/force/Drag_speedbrake">

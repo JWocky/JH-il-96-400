@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- 
-	This is currently my purely private version of the Il-96-400. It is based on the work of FGUK, namely XSaint and Petar Jedvaj. 		However, I develop JSB planes, this was, in the original package YASIM and got outdated by changes to Yasim and FG over the 		last more than 10 years. Also, the passenger vesion in the package was the I-96-400, the attempt of a 300-stretch with western 		engines	in the 90s (only one prototype built, while the 400T and the 400M are newer projects, with Russian avionics (although 		also in	English availalable and Aviadvigatel PS-90A1 (A2 optional), which also means different specs in speed and cruise
+
+		<!--
 	altitude and ceiling, so let's get back in the numbers and work on the cockpit integration over time.
 -->
 
@@ -1020,6 +1020,8 @@
 			<electrical>
 				<number-apus type="int">1</number-apus>
 			</electrical>
+			<autopilot>
+sysrems			</autopilot>
 
 			<engines>
 				<number type="int">8</number>

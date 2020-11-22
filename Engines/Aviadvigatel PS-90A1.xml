@@ -15,7 +15,7 @@
 <turbine_engine name="Aviadvigatel_PS90A1">
 	<milthrust> 76800.0 </milthrust>  <!-- max take off thrust per stage4 -->
 	<bypassratio>   4.4 </bypassratio>
-	<tsfc>          0.295 </tsfc>
+	<tsfc>          0.105 </tsfc>
 	<bleed>         0.03</bleed>
 	<idlen1>       25.0 </idlen1>
 	<idlen2>       50.0 </idlen2>
