@@ -39,7 +39,7 @@
 	-->
 
 	<metrics>
-		<wingarea  unit="FT2"> 3767.75 </wingarea>
+		<wingarea  unit="FT2"> 3767.9 </wingarea>
 		<wingspan  unit="FT" >  197.25 </wingspan>
 		<wing_incidence>          2.00 </wing_incidence>
 		<chord     unit="FT" >   19.10 </chord>
@@ -63,7 +63,6 @@
 		<location name="VRP" unit="IN">
 			<x>0</x>
 			<y>0</y>
-			<z>-20.00</z>
 		</location>
 	
 	</metrics>
@@ -188,11 +187,11 @@
 			<location unit="IN">
 				<x> 327.21 </x>
 				<y>   0.00 </y>
-				<z> -242.04 </z>
+				<z> -244.24 </z>
 			</location>
-			<static_friction>  0.80 </static_friction>
-			<dynamic_friction> 0.50 </dynamic_friction>
-			<rolling_friction> 0.02 </rolling_friction>
+			<static_friction>  0.50 </static_friction>
+			<dynamic_friction> 0.25 </dynamic_friction>
+			<rolling_friction> 0.01 </rolling_friction>
 			<spring_coeff unit="LBS/FT">      175050.00 </spring_coeff>
 			<damping_coeff unit="LBS/FT/SEC"> 87525.00 </damping_coeff>
 			<break_group>NONE</break_group>
@@ -204,13 +203,11 @@
 			<location unit="IN">
 				<x> 1439.72 </x>
 				<y> -213.03 </y>
-				<z> -252.04 </z>
+				<z> -252.24 </z>
 			</location>
-			<static_friction>  0.80 </static_friction>
-			<dynamic_friction> 0.50 </dynamic_friction>
-			<rolling_friction> 0.02 </rolling_friction>
-			<spring_coeff unit="LBS/FT">      583500.00 </spring_coeff>
-			<damping_coeff unit="LBS/FT/SEC"> 291750.00 </damping_coeff>
+			<static_friction>  0.50 </static_friction>
+			<dynamic_friction> 0.25 </dynamic_friction>
+			<rolling_friction> 0.01 </rolling_friction>
 			<max_steer unit="DEG">0</max_steer>
 			<brake_group>LEFT</brake_group>
 			<retractable>1</retractable>
@@ -220,11 +217,11 @@
 			<location unit="IN">
 				<x> 1439.72 </x>
 				<y> 0.00 </y>
-				<z> -252.04 </z>
+				<z> -254.24 </z>
 			</location>
-			<static_friction>  0.80 </static_friction>
-			<dynamic_friction> 0.50 </dynamic_friction>
-			<rolling_friction> 0.02 </rolling_friction>
+			<static_friction>  0.50 </static_friction>
+			<dynamic_friction> 0.25 </dynamic_friction>
+			<rolling_friction> 0.01 </rolling_friction>
 			<spring_coeff unit="LBS/FT">      583500.00 </spring_coeff>
 			<damping_coeff unit="LBS/FT/SEC"> 291750.00 </damping_coeff>
 			<max_steer unit="DEG">0</max_steer>
@@ -236,12 +233,12 @@
 			<location unit="IN">
 				<x> 1439.72 </x>
 				<y> 213.03 </y>
-				<z> -252.04 </z>
+				<z> -254.24 </z>
 			</location>
-			<static_friction>  0.80 </static_friction>
-			<dynamic_friction> 0.50 </dynamic_friction>
-			<rolling_friction> 0.02 </rolling_friction>
-			<spring_coeff unit="LBS/FT">      583500.00 </spring_coeff>
+			<static_friction>  0.50 </static_friction>
+			<dynamic_friction> 0.25 </dynamic_friction>
+			<rolling_friction> 0.01 </rolling_friction>
+		<spring_coeff unit="LBS/FT">      583500.00 </spring_coeff>
 			<damping_coeff unit="LBS/FT/SEC"> 291750.00 </damping_coeff>
 			<max_steer unit="DEG">0</max_steer>
 			<brake_group>RIGHT</brake_group>
@@ -252,7 +249,7 @@
 			<location unit="IN">
 				<x> 1384.35 </x>
 				<y> -98.62 </y>
-				<z> -242.93 </z>
+				<z> -244.93 </z>
 			</location>
 			<static_friction>  1.00 </static_friction>
 			<dynamic_friction> 1.00 </dynamic_friction>
@@ -264,7 +261,7 @@
 			<location unit="IN">
 				<x> 1384.35 </x>
 				<y>  98.62 </y>
-				<z> -242.93 </z>
+				<z> -244.93 </z>
 			</location>
 			<static_friction>  1.00 </static_friction>
 			<dynamic_friction> 1.00 </dynamic_friction>
@@ -642,8 +639,7 @@
 	</flight_control>
 
 	<aerodynamics>
-
-		<axis name="LIFT">
+Lift		<axis name="LIFT">
 
 			<function name="aero/force/Lift_alpha">
 				<description>Lift due to alpha</description>
@@ -652,12 +648,15 @@
 					<property>metrics/Sw-sqft</property>
 					<table>
 				        	<independentVar lookup="row">aero/alpha-rad</independentVar>
-						<tableData>
-							-0.20 -0.968
-							 0.00  0.440
-							 0.23  1.540
-					 		 0.60  0.968
+						<product>
+							<tableData>
+								-0.20 -0.998
+								 0.00  0.470
+								 0.23  1.570
+						 		 0.60  0.998
+					<value> 1.25000 </value>
 						</tableData>
+						</product>
 					</table>
 				</product>
 			</function>
@@ -668,7 +667,7 @@
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/flap-pos-deg</property>
-					<value> 0.05000 </value>
+					<value> 0.05500 </value>
 				</product>
 			</function>
 
@@ -688,7 +687,7 @@
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/elevator-pos-rad</property>
-					<value>0.2</value>
+					<value>0.25</value>
 				</product>
 			</function>
 
@@ -704,12 +703,13 @@
 					<table>
 						<independentVar lookup="row">aero/alpha-rad</independentVar>
 						<tableData>
-							-1.57    1.500
-							-0.26    0.022
-							 0.00    0.017
-							 0.26    0.022
-							 1.57    1.500
+							-1.57    1.520
+							-0.26    0.092
+							 0.00    0.097
+							 0.26    0.092
+							 1.57    1.570
 						</tableData>
+					<value> 0.1.250 </value>
 					</table>
 				</product>
 			</function>
@@ -720,7 +720,7 @@
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>aero/cl-squared</property>
-					<value>0.042</value>
+					<value>0.025</value>
 				</product>
 			</function>
 
@@ -734,8 +734,8 @@
 						<tableData>
 							0.00      0.000
 							0.79      0.000
-							1.10      0.023
-							1.80      0.015
+							1.10      0.013
+							1.80      0.005
 						</tableData>
 					</table>
 				</product>
@@ -747,7 +747,7 @@
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/flap-pos-deg</property>
-					<value> 0.00183 </value>
+					<value> 0.00200 </value>
 				</product>
 			</function>
 
@@ -757,8 +757,8 @@
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>gear/gear-pos-norm</property>
-					<value>0.011</value>
-				</product>
+					<value> 0.00200 </value>
+</product>
 			</function>
 
 			<function name="aero/force/Drag_speedbrake">
@@ -767,7 +767,7 @@
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/speedbrake-pos-norm</property>
-					<value>0.017</value>
+					<value>0.117</value>
 				</product>
 			</function>
 
