@@ -24,7 +24,6 @@
 
 	<predict-simple>
 		<name>predicted altitude 5 seconds ahead</name>
-		<debugtrue</debug>
 		<input>/position/altitude-ft</input>
 		<output>/autopilot/internal/altitude-5-sec-ahead</output>
 		<seconds>5.0</seconds>
@@ -33,7 +32,6 @@
 
 	<predict-simple>
 		<name>predicted altitude 60 seconds ahead</name>
-		<debugtrue</debug>
 		<input>/position/altitude-ft</input>
 		<output>/autopilot/internal/altitude-60-sec-ahead</output>
 		<seconds>60.0</seconds>

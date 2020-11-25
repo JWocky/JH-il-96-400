@@ -91,7 +91,10 @@
 		<chase-distance-m>-100</chase-distance-m>
 
 		<systems>
-			<path>Aircraft/JH-il-96-400/Systems/systems.xml</path>
+		  <autopilot>
+		    <path>Systems/Autopilot/SYS11_0_autopilot.xml</path>
+		  </autopilot>
+		  <!--<path>Aircraft/JH-il-96-400/Systems/systems.xml</path>-->
 		</systems>
 
 		<flaps>
