@@ -2,7 +2,7 @@
 
 <!--
 	File:     Aviadvigatel PS-90A1.xml
-	Author:   Aero-Matic v 0.95, changes by JWocky
+	Author:   Aero-Matic v 0.95, changes by JWocky for LÖRELEY TWEAK
 
 	Inputs:
 	name:           Aviadvigatel PS-90A1
@@ -13,14 +13,14 @@
 -->
 
 <turbine_engine name="Aviadvigatel_PS90A1">
-	<milthrust> 76800.0 </milthrust>  <!-- max take off thrust per stage4 -->
-	<bypassratio>   4.4 </bypassratio>
-	<tsfc>          0.105 </tsfc>
-	<bleed>         0.03</bleed>
+	<milthrust> 78000.0 </milthrust>  <!-- max take off thrust per stage4 -->
+	<bypassratio>   3.0 </bypassratio>
+	<tsfc>          0.045 </tsfc>
+	<bleed>         0.01</bleed>
 	<idlen1>       25.0 </idlen1>
 	<idlen2>       50.0 </idlen2>
-	<maxn1>       110.0 </maxn1>
-	<maxn2>       110.0 </maxn2>
+	<maxn1>       120.0 </maxn1>
+	<maxn2>       120.0 </maxn2>
 	<augmented> 0 </augmented>
 	<injected>  0 </injected>
 
@@ -28,6 +28,7 @@
 		<table>
 			<independentVar lookup="row">velocities/mach</independentVar>
 			<independentVar lookup="column">atmosphere/density-altitude</independentVar>
+
 			<tableData>
          -10000     0     10000   20000   30000   40000   50000   60000
      0.0  0.0530  0.0988  0.0528  0.0794  0.0999  0.1283  0.1567  0
@@ -38,7 +39,7 @@
      1.0  0.0     0.0     0.0     0.0     0.0     0.1552  0.0900  0
 			</tableData>
 		</table>
-	</function>
+		</function>
 
 	<function name="MilThrust">
 		<table>
@@ -56,6 +57,5 @@
      1.4   1.6041  1.3600  1.0960  0.8450  0.6380  0.4340  0.2640  0
 				</tableData>
 		</table>
-	</function>
-	
+</function>
 </turbine_engine>

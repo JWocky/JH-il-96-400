@@ -210,6 +210,8 @@
 			<rolling_friction> 0.01 </rolling_friction>
 			<max_steer unit="DEG">0</max_steer>
 			<brake_group>LEFT</brake_group>
+			<spring_coeff unit="LBS/FT">      583500.00 </spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC"> 87525.00 </damping_coeff>
 			<retractable>1</retractable>
 		</contact>
 
@@ -223,7 +225,7 @@
 			<dynamic_friction> 0.50 </dynamic_friction>
 			<rolling_friction> 0.02 </rolling_friction>
 			<spring_coeff unit="LBS/FT">      583500.00 </spring_coeff>
-			<damping_coeff unit="LBS/FT/SEC"> 291750.00 </damping_coeff>
+			<damping_coeff unit="LBS/FT/SEC"> 87525.00 </damping_coeff>
 			<max_steer unit="DEG">0</max_steer>
 			<brake_group>CENTER</brake_group>
 			<retractable>1</retractable>
@@ -238,37 +240,13 @@
 			<static_friction>  0.80 </static_friction>
 			<dynamic_friction> 0.50 </dynamic_friction>
 			<rolling_friction> 0.02 </rolling_friction>
-		<spring_coeff unit="LBS/FT">      583500.00 </spring_coeff>
-			<damping_coeff unit="LBS/FT/SEC"> 291750.00 </damping_coeff>
+v			<rolling_friction> 0.01 </rolling_friction>
+			<spring_coeff unit="LBS/FT">      583500.00 </spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC"> 87525.00 </damping_coeff>
 			<max_steer unit="DEG">0</max_steer>
 			<brake_group>RIGHT</brake_group>
 			<retractable>1</retractable>
 		</contact>
-
-		<contact type="STRUCTURE" name="LEFT_WING">
-			<location unit="IN">
-				<x> 1384.35 </x>
-				<y> -98.62 </y>
-				<z> -244.93 </z>
-			</location>
-			<static_friction>  1.00 </static_friction>
-			<dynamic_friction> 1.00 </dynamic_friction>
-			<spring_coeff unit="LBS/FT">      583500.00 </spring_coeff>
-			<damping_coeff unit="LBS/FT/SEC"> 583500.00 </damping_coeff>
-		</contact>
-
-		<contact type="STRUCTURE" name="RIGHT_WING">
-			<location unit="IN">
-				<x> 1384.35 </x>
-				<y>  98.62 </y>
-				<z> -244.93 </z>
-			</location>
-			<static_friction>  1.00 </static_friction>
-			<dynamic_friction> 1.00 </dynamic_friction>
-			<spring_coeff unit="LBS/FT">      583500.00 </spring_coeff>
-			<damping_coeff unit="LBS/FT/SEC"> 583500.00 </damping_coeff>
-		</contact>
-
 	</ground_reactions>
 
 	<propulsion>
@@ -655,7 +633,7 @@
 					 		 0.60  0.968
 						</tableData>
 					</table>
-					<value> 1.2500 </value>
+					<value> 1.4000 </value>
 				</product>
 			</function>
 			
@@ -665,7 +643,7 @@
 					<property>aero/qbar-psf</property>
 					<property>metrics/Sw-sqft</property>
 					<property>fcs/flap-pos-deg</property>
-					<value> 0.05500 </value>
+					<value> 0.04500 </value>
 				</product>
 			</function>
 
@@ -701,13 +679,13 @@
 					<table>
 						<independentVar lookup="row">aero/alpha-rad</independentVar>
 						<tableData>
-							-1.57    1.520
-							-0.26    0.092
-							 0.00    0.097
-							 0.26    0.092
-							 1.57    1.570
+							-1.57    1.320
+							-0.26    0.072
+							 0.00    0.077
+							 0.26    0.072
+							 1.57    1.470
 						</tableData>
-					<value> 0.1.150 </value>
+					<value> 0.50 </value>
 					</table>
 				</product>
 			</function>
