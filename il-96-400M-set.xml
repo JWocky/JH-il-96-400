@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-
-		<!--
 	altitude and ceiling, so let's get back in the numbers and work on the cockpit integration over time.
 -->
 
@@ -1024,8 +1021,8 @@
 				<number-apus type="int">1</number-apus>
 			</electrical>
 			<autopilot>
-sysrems			</autopilot>
-
+				<path>Systems/Autopilot/SYS11_0_autopilot.xml</path>
+			</autopilot>
 			<engines>
 				<number type="int">8</number>
 				<set>
