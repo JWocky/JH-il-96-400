@@ -24,14 +24,16 @@
 
 	<predict-simple>
 		<name>predicted altitude 5 seconds ahead</name>
+		<debug>false</debug>
 		<input>/position/altitude-ft</input>
 		<output>/autopilot/internal/altitude-5-sec-ahead</output>
-		<seconds>5.0</seconds>
+		<seconds>6.0</seconds>
 		<filter-gain>0.1</filter-gain>
 	</predict-simple>
 
 	<predict-simple>
 		<name>predicted altitude 60 seconds ahead</name>
+		<debug>false</debug>
 		<input>/position/altitude-ft</input>
 		<output>/autopilot/internal/altitude-60-sec-ahead</output>
 		<seconds>60.0</seconds>
@@ -42,7 +44,7 @@
 		<name>predicted nav1-error 5 seconds ahead</name>
 		<input>/autopilot/internal/nav1-track-error-deg</input>
 		<output>/autopilot/internal/nav1-error-5-sec-ahead</output>
-		<seconds>5</seconds>
+		<seconds>12</seconds>
 		<filter-gain>1.00</filter-gain>
 	</predict-simple>
 
@@ -58,7 +60,7 @@
 		<name>predicted true heading error deg 5 sec ahead</name>
 		<input>/autopilot/internal/true-heading-error-deg</input>
 		<output>/autopilot/internal/true-heading-error-deg-5-sec-ahead</output>
-		<seconds>5</seconds>
+		<seconds>12</seconds>
 		<filter-gain>1.00</filter-gain>
 	</predict-simple>
 
@@ -119,6 +121,15 @@
 		<input>/instrumentation/nav[0]/gs-rate-of-climb-fpm</input>
 		<output>/autopilot/internal/gs-rate-of-climb-fpm-filtered</output>
 		<max-rate-of-change>40.0</max-rate-of-change>
+	</filter>
+
+	<filter>
+		<name>Nav1 heading error Filter</name>
+		<debug>false</debug>
+		<type>noise-spike</type>
+		<input>/autopilot/internal/nav1-error-5-sec-ahead</input>
+		<output>/autopilot/internal/nav1-heading-error-deg-filtered</output>
+		<max-rate-of-change>30.0</max-rate-of-change>
 	</filter>
     
 	<!-- vertical speed hold transmitter -->
@@ -406,7 +417,7 @@
 			<factor>1000</factor>
 		</output>
 		<config>
-			<Kp>-0.01</Kp>        <!-- proportional gain -0.01 -->
+			<Kp>0.10</Kp>        <!-- proportional gain -0.01 -->
 			<beta>1.0</beta>       <!-- input value weighing factor -->
 			<alpha>0.5</alpha>     <!-- low pass filter weighing factor -->
 			<gamma>0.0</gamma>     <!-- input value weighing factor for -->
@@ -417,7 +428,7 @@
 				<value>-1600</value>
 			</u_min>   <!-- minimum output clamp -->
 			<u_max>
-				<value>1600</value>
+				<value>2000</value>
 			</u_max>   <!-- maximum output clamp -->
 		</config>
 	</pid-controller>
@@ -491,7 +502,7 @@
 			<property>/autopilot/internal/target-pitch-deg</property>
 		</output>
 		<config>
-			<Kp-0.01</Kp>        <!-- proportional gain -0.01 -->
+			<Kp>-0.01s</Kp>        <!-- proportional gain -0.01 -->
 			<Ki>0.010</Ki>
 			<beta>1.0</beta>       <!-- input value weighing factor -->
 			<alpha>0.5</alpha>     <!-- low pass filter weighing factor -->
@@ -593,7 +604,7 @@
 		</config>
 	</pid-controller>
 
-	<pi-simple-controller>
+	<pid-controller>
 		<name>Target Roll Computer</name>
 		<debug>false</debug>
 		<enable>
@@ -628,7 +639,7 @@
 					<property>autopilot/settings/yawdamper</property>
 				</and>
 			</condition>
-			<property>/autopilot/internal/heading-bug-error-deg</property>
+			<property>/autopilot/internal/heading-bug-error-deg-5-sec-ahead</property>
 		</input>
 		<input>
 			<condition>
@@ -642,7 +653,7 @@
 					</not>
 				</and>
 			</condition>
-			<property>/autopilot/internal/heading-bug-error-deg-5-sec-ahead</property>
+			<property>/autopilot/internal/heading-bug-error-deg</property>
 		</input>
 		<reference>
 			<condition>
@@ -664,7 +675,7 @@
 					<property>autopilot/settings/yawdamper</property>
 				</and>
 			</condition>
-			<property>/autopilot/internal/true-heading-error-deg</property>
+			<property>/autopilot/internal/true-heading-error-deg-5-sec-ahead</property>
 		</input>
 		<input>
 			<condition>
@@ -678,7 +689,7 @@
 					</not>
 				</and>
 			</condition>
-			<property>/autopilot/internal/true-heading-error-deg-5-sec-ahead</property>
+			<property>/autopilot/internal/true-heading-error-deg</property>
 		</input>
 		<reference>
 			<condition>
@@ -697,7 +708,7 @@
 					<value>nav1-hold</value>
 				</equals>
 			</condition>
-			<prop>/autopilot/internal/nav1-track-error-deg</prop>
+			<prop>/autopilot/internal/nav1-heading-error-deg-filtered</prop>
 		</input>
 		<reference>
 			<condition>
@@ -713,10 +724,12 @@
 			<property>/autopilot/internal/target-roll-deg</property>
 		</output>
 		<config>
-			<Kp>
-				<property>/autopilot/internal/turn_gain</property>
-			</Kp>
-			<Ki> 0.00</Ki>      <!-- proportional gain -->
+			<Kp>-0.25</Kp>      <!-- proportional gain -->
+			<beta>1.0</beta>    <!-- input value weighing factor -->
+			<alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
+			<gamma>0.0</gamma>  <!-- input value weighing factor for unfiltered derivative error -->
+			<Ti>1.0</Ti>       <!-- integrator time -->
+			<Td>0.1</Td>    <!-- derivator time -->
 			<u_min>
 				<property>/autopilot/settings/bank-angle-limit-deg</property>
 				<scale>-1.0</scale>
@@ -725,7 +738,7 @@
 				<property>/autopilot/settings/bank-angle-limit-deg</property>
 			</u_max>
 		</config>
-	</pi-simple-controller>
+	</pid-controller>
   
 	<pid-controller>
 		<name>System Command: Roll</name>
