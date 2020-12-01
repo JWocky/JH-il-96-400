@@ -1,6 +1,8 @@
-	altitude and ceiling, so let's get back in the numbers and work on the cockpit integration over time.
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    altitude and ceiling, so let's get back in the numbers and
+    work on the cockpit integration over time.
 -->
-
 <PropertyList>
 
 	<sim>
