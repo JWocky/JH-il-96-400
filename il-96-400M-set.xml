@@ -450,9 +450,9 @@
 	
 	<fdm>
 		<jsbsim>
-			<fcs>
+			<systems>
 				<flap-setting type="int">0</flap-setting>
-			</fcs>
+			</systems>
 			<!--systems>
 				<pushback>
 					<linked type="int">0</linked>
@@ -641,7 +641,7 @@
 					<property>/voodoomaster/hud/mode</property>
 					<value type="int">0</value>
 					<value type="int">1</value>
-					<value type="int">2</value>				
+						<value type="int">2</value>				
 					<!-- 3 reserved for radio operator -->
 					<value type="int">4</value>				
 				</binding>
@@ -663,8 +663,8 @@
 
 
 			<key n="127">
-				<name>Delete</name>
-				<desc>Toggle Reversers</desc>
+			<name>Delete</name>
+			<desc>Toggle Reversers</desc>
 				<binding>
 					<command>property-toggle</command>
 					<property>/engines/engine[0]/reverser</property>
@@ -677,10 +677,10 @@
 					<command>property-toggle</command>
 					<property>/engines/engine[2]/reverser</property>
 				</binding>
-				<binding>
+			<binding>
 					<command>property-toggle</command>
 					<property>/engines/engine[3]/reverser</property>
-				</binding>
+			</binding>
 				<binding>
 					<command>property-toggle</command>
 					<property>/engines/engine[4]/reverser</property>
@@ -716,61 +716,47 @@
 					<script>dialogs.Radio.open()</script>
 				</binding>
 			</key>
-		
-			<key n="1">
-				<name>Ctrl-A</name>
-				<desc>Toggle autopilot altitude lock</desc>
-				<binding>
-					<command>property-toggle</command>
-					<property>instrumentation/afds/inputs/alt-hold</property>
-				</binding>
-			</key>
-		
-			<key n="7">
-		                <name>Ctrl-G</name>
-		                <desc>Toggle autopilot glide slope lock</desc>
-		                <binding>
-		                    <command>property-toggle</command>
-		                    <property>instrumentation/afds/inputs/app-hold</property>
-		                </binding>
+
+			<key n="91">
+				  <name>FlapsIn</name>
+				  <desc>Pull flaps and slats in</desc>
+				  <binding>
+					<condition>
+					      <not>
+				      			<equals>
+								<property>/fdm/jsbsim/systems/flap-setting</property>
+								<value>4</value>
+							</equals>
+				      		</not>
+					</condition>
+					<command>property-adjust</command>
+					<property>/fdm/jsbsim/systems/flap-setting</property>
+					<step>-1</step>
+					<min>0</min>
+					<max>6</max>
+				 </binding>
 			</key>
 
-			<key n="8">
-		                <name>Ctrl-H</name>
-		                <desc>Toggle autopilot heading lock</desc>
-		                <binding>
-		                    <command>property-toggle</command>
-		                    <property>instrumentation/afds/inputs/hdg-hold</property>
-		                </binding>
-			</key>
-            
-			<key n="14">
-		                <name>Ctrl-N</name>
-	        	        <desc>Toggle LNAV lock</desc>
-	        	        <binding>
-	        	            <command>property-toggle</command>
-	        	            <property>instrumentation/afds/inputs/lnav-hold</property>
-	        	        </binding>
-			</key>
+		<key n="93">
+				  <name>FlapsOut</name>
+					<desc>Push flaps and slats out</desc>
+					  <binding>
+					    <condition>
+					      <not>
+						      <equals>
+								<property>/fdm/jsbsim/systems/flap-setting</property>
+								<value>4</value>
+						      	</equals>
+					      </not>
+					    </condition>
+						    <command>property-adjust</command>
+						    <property>/fdm/jsbsim/systems/flap-setting</property>
+						    <step>1</step>
+						    <min>0</min>
+						    <max>6</max>
+					 </binding>
+				</key>
 		
-			<key n="16">
-				<name>Ctrl-P</name>
-				<desc>Toggle VS</desc>
-				<binding>
-					<command>property-toggle</command>
-					<property>instrumentation/afds/inputs/vs-fpa-hold</property>
-				</binding>
-			</key>
-		
-			<key n="19">
-				<name>Ctrl-S</name>
-				<desc>Toggle autothrottle</desc>
-				<binding>
-					<command>property-toggle</command>
-					<property>instrumentation/afds/inputs/at-hold</property>
-				</binding>
-			</key>
-
 		</keyboard>
 	</input>
 

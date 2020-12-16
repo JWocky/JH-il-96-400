@@ -9,7 +9,7 @@
 	<!-- <model>
 	Already commented out in original version
 	<name>Pedestal</name>
-	<path>Aircraft/il-96-400/Models/pedestal.xml</path>
+	<path>Aircraft/JH-il-96-400/Models/pedestal.xml</path>
 	<offsets>
 		<x-m>-1.288</x-m>
 		<y-m>0.017</y-m>
@@ -21,7 +21,7 @@
 
 	<model>
 		<name>OHpanel</name>
-		<path>Aircraft/il-96-400/Models/OHpanel.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/OHpanel.xml</path>
 		<offsets>
 			<x-m>-1.103</x-m>
 			<y-m>-0.007</y-m>
@@ -32,7 +32,7 @@
 
 	<!-- <model>
 		<name>APpanel</name>
-		<path>Aircraft/il-96-400/Models/APpanel.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/APpanel.xml</path>
 		<offsets>
 			<x-m>-23.57</x-m>
 			<y-m>-0.006</y-m>
@@ -43,7 +43,7 @@
 
 	<!-- <model>
 		<name>CTL1</name>
-		<path>Aircraft/il-96-400/Models/Instruments/EFIS/efis-ctl.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Instruments/EFIS/efis-ctl.xml</path>
 		<offsets>
 			<x-m>-23.57</x-m>
 			<y-m>-0.371</y-m>
@@ -54,7 +54,7 @@
 
 	<!-- <model>
 		<name>CTL2</name>
-		<path>Aircraft/il-96-400/Models/Instruments/EFIS/efis-ctl.xml</path>
+		<path>Aircraft/JH_il-96-400/Models/Instruments/EFIS/efis-ctl.xml</path>
 		<offsets>
 			<x-m>-23.57</x-m>
 			<y-m>0.340</y-m>
@@ -65,7 +65,7 @@
 
 	<!--  <model>
 		<name>Pclock </name>
-		<path>Aircraft/il-96-400/Models/Instruments/chronometer.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Instruments/chronometer.xml</path>
 		<offsets>
 			<x-m>-23.352</x-m>
 			<y-m>-0.018</y-m>
@@ -77,7 +77,7 @@
 
    <!-- <model>
         <name>STDBY AI</name>
-        <path>Aircraft/il-96-400/Models/Instruments/stby-ai.xml</path>
+        <path>Aircraft/JH-il-96-400/Models/Instruments/stby-ai.xml</path>
         <offsets>
             <x-m>-23.60</x-m>
             <y-m>-0.009</y-m>
@@ -90,7 +90,7 @@
 
    <!-- <model>
         <name>STBY ALT</name>
-        <path>Aircraft/il-96-400/Models/Instruments/stby-alt.xml</path>
+        <path>AircraftJH-/il-96-400/Models/Instruments/stby-alt.xml</path>
         <offsets>
             <x-m>-23.60</x-m>
             <y-m>-0.277</y-m>
@@ -103,7 +103,7 @@
 
     <!-- <model>
         <name>GearCTL</name>
-        <path>Aircraft/il-96-400/Models/gear-ctl.xml</path>
+        <path>AircraftJH-/il-96-400/Models/gear-ctl.xml</path>
         <offsets>
             <x-m>-23.568</x-m>
             <y-m>0.307</y-m>
@@ -115,13 +115,13 @@
 <!--2d PFD-->
     <!--model>
         <name>panel1</name>
-        <path>Aircraft/il-96-400/Models/panel1.xml</path>
+        <path>Aircraft/JH-il-96-400/Models/panel1.xml</path>
     </model-->
 
 <!--3d PFD-->
     <!-- <model>
         <name>panel2</name>
-        <path>Aircraft/il-96-400/Models/panel2.xml</path>
+        <path>Aircraft/JH-il-96-400/Models/panel2.xml</path>
     </model> -->
 
 <!--  controls -->

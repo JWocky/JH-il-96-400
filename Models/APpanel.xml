@@ -7,13 +7,13 @@ refurbished by Peter Brendt
 - to change properties used
 - to make knobs actually mouswewheel turnable
 - to enable armed APs
-- to clean up overlpping hospots tat didn't qwork at all
-- to repair the mode selector buttons thaz did nothing at all
+- to clean up overlapping hospots tat didn't work at all
+- to repair the mode selector buttons that did nothing at all
 -->
 
 <PropertyList>
 
-<path>APpanel.ac</path>
+<path>Aircraft/JH-il-96-400/Models/APpanel.ac</path>
 
     <animation>
         <type>rotate</type>

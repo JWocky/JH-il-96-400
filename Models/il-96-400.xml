@@ -72,7 +72,7 @@ compltely reworked by JWocky
 
 	<model>
 		<name>flightdeck</name>
-		<path>Aircraft/il-96-400/Models/flightdeck.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/flightdeck.xml</path>
 		<offsets>
 			<x-m>-21.750</x-m>
 			<y-m>0</y-m>
@@ -646,7 +646,7 @@ compltely reworked by JWocky
     </animation>
 
 	<model>
-		<path>Aircraft/il-96-400/Models/lights/GreenLight.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/lights/GreenLight.xml</path>
 		<name>Greenlight</name>
 		<condition>
 			<greater-than>
@@ -671,7 +671,7 @@ compltely reworked by JWocky
 	</animation>
 
 	<model>
-		<path>Aircraft/il-96-400/Models/lights/flash.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/lights/flash.xml</path>
 		<name>flashright</name> 
 		<condition>
 			<greater-than>
@@ -696,7 +696,7 @@ compltely reworked by JWocky
 	</animation>
 
 	<model>
-		<path>Aircraft/il-96-400/Models/lights/RedLight.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/lights/RedLight.xml</path>
 		<name>Redlight</name>  
 		<condition>
 			<greater-than>
@@ -721,7 +721,7 @@ compltely reworked by JWocky
 	</animation>
 
 	<model>
-		<path>Aircraft/il-96-400/Models/lights/flash.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/lights/flash.xml</path>
 		<name>flashleft</name> 
 		<condition>
 			<greater-than>
@@ -746,7 +746,7 @@ compltely reworked by JWocky
 	</animation>
 
 	<model>
-		<path>Aircraft/il-96-400/Models/lights/flash.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/lights/flash.xml</path>
 		<name>flashtop</name>  
 		<condition>
 			<greater-than>
@@ -771,7 +771,7 @@ compltely reworked by JWocky
 	</animation>
 
 	<model>
-		<path>Aircraft/il-96-400/Models/lights/flash.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/lights/flash.xml</path>
 		<name>flashtop</name>    
 		<condition>
 			<greater-than>
@@ -796,7 +796,7 @@ compltely reworked by JWocky
 	</animation>
 
 	<model>
-		<path>Aircraft/il-96-400/Models/lights/landinglight.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/lights/landinglight.xml</path>
 		<name>NoseGearLandinglight</name>     
 		<condition>
 			<and>
@@ -819,7 +819,7 @@ compltely reworked by JWocky
 
 
 	<model>
-		<path>Aircraft/il-96-400/Models/lights/landinglight.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/lights/landinglight.xml</path>
 		<name>LeftWingLandinglight</name>
 		<condition>
 			<and>
@@ -842,7 +842,7 @@ compltely reworked by JWocky
 	</model>
 
 	<model>
-		<path>Aircraft/il-96-400/Models/lights/landinglight.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/lights/landinglight.xml</path>
 		<name>RightWingLandinglight</name>
 		<condition>
 			<and>
@@ -864,7 +864,7 @@ compltely reworked by JWocky
 	</model>
 
 	<model>
-		<path>Aircraft/il-96-400/Models/lights/beacon.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/lights/beacon.xml</path>
 		<name>Beaconlight.top</name>     
 		<offsets>
 			<x-m>2.30</x-m>
@@ -874,7 +874,7 @@ compltely reworked by JWocky
 	</model>
 
 	<model>
-		<path>Aircraft/il-96-400/Models/lights/beacon.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/lights/beacon.xml</path>
 		<name>Beaconlight.bottom</name>     
 		<offsets>
 			<x-m>12.213</x-m>
