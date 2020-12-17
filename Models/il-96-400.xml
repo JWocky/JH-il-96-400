@@ -5,11 +5,11 @@ compltely reworked by JWocky
 
 <PropertyList>
 
-	<path>il-96-400.ac</path>
+	<path>Aircraft/JH-il-96-400/Models/il-96-400.ac</path>
 
 	<nasal>
 	        <load>
-			var livery_update = aircraft.livery_update.new("Aircraft/il-96-400/Models/Liveries", 10);
+			var livery_update = aircraft.livery_update.new("Aircraft/iJH-l-96-400/Models/Liveries", 10);
 		</load>
 
 		<unload>
@@ -276,7 +276,7 @@ compltely reworked by JWocky
 		<type>rotate</type>
 		<object-name>LHelevator</object-name>
 		<property>surface-positions/elevator-pos-norm</property>
-		<factor>-1</factor>
+		<factor>-4</factor>
 		<center>
 			<x-m>33.209</x-m>
 			<y-m>-1.026</y-m>
@@ -311,7 +311,7 @@ compltely reworked by JWocky
 		<type>rotate</type>
 		<object-name>RHelevator</object-name>
 		<property>surface-positions/elevator-pos-norm</property>
-		<factor>1</factor>
+		<factor>4</factor>
 		<center>
 			<x-m>33.209</x-m>
 			<y-m>1.026</y-m>
@@ -345,7 +345,7 @@ compltely reworked by JWocky
 		<type>rotate</type>
 		<object-name>Rflap1</object-name>
 		<object-name>Rflap2</object-name>
-		<property>surface-positions/flap-pos-norm</property>
+		<property> fdm/jsbsim/sytems/flap-setting</property>
 		<factor>-30</factor>
 		<center>
 			<x-m>9.84</x-m>
@@ -1860,7 +1860,7 @@ compltely reworked by JWocky
 	<!-- contrails -->
 
 	<model>
-		<path>Aircraft/il-96-400/Models/Effects/contrail1.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Effects/contrail1.xml</path>
 		<offsets>
 			<x-m>7.00</x-m>
 			<y-m>-16.00</y-m>
@@ -1872,7 +1872,7 @@ compltely reworked by JWocky
 	</model>
 
 	<model>
-		<path>Aircraft/il-96-400/Models/Effects/contrail1.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Effects/contrail1.xml</path>
 		<offsets>
 			<x-m>15.10</x-m>
 			<y-m>-9.90</y-m>
@@ -1884,7 +1884,7 @@ compltely reworked by JWocky
 	</model>
 
 	<model>
-		<path>Aircraft/il-96-400/Models/Effects/contrail1.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Effects/contrail1.xml</path>
 		<offsets>
 			<x-m>14.88</x-m>
 			<y-m>9.90</y-m>
@@ -1896,7 +1896,7 @@ compltely reworked by JWocky
 	</model>
 
 	<model>
-		<path>Aircraft/il-96-400/Models/Effects/contrail1.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Effects/contrail1.xml</path>
 		<offsets>
 			<x-m>7.00</x-m>
 			<y-m>16.00</y-m>
@@ -1908,7 +1908,7 @@ compltely reworked by JWocky
 	</model>
 
 	<model>
-		<path>Aircraft/il-96-400/Models/Effects/tyre-smoke-nose.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Effects/tyre-smoke-nose.xml</path>
 		<name>tyre-smoke-n</name>
 		<offsets>
 			<x-m>-19.00</x-m>
@@ -1919,7 +1919,7 @@ compltely reworked by JWocky
 
 
 	<model>
-		<path>Aircraft/il-96-400/Models/Effects/tyre-smoke-left.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Effects/tyre-smoke-left.xml</path>
 		<name>tyre-smoke-l</name>
 		<offsets>
 			<x-m>7.80</x-m>
@@ -1930,7 +1930,7 @@ compltely reworked by JWocky
 
 
 	<model>
-		<path>Aircraft/il-96-400/Models/Effects/tyre-smoke-right.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Effects/tyre-smoke-right.xml</path>
 		<name>tyre-smoke-r</name>
 		<offsets>
 			<x-m>7.80</x-m>
@@ -1940,7 +1940,7 @@ compltely reworked by JWocky
 	</model>
 
 	<model>
-		<path>Aircraft/il-96-400/Models/Effects/tyre-smoke-ctr.xml</path>
+		<path>Aircraft/JHil-96-400/Models/Effects/tyre-smoke-ctr.xml</path>
 		<name>tyre-smoke-r</name>
 		<offsets>
 			<x-m>7.80</x-m>
@@ -1952,7 +1952,7 @@ compltely reworked by JWocky
 	<!--#### PANELS-->
 	<model>
 	        <name>PFD1</name>
-	        <path>Aircraft/il-96-400/Models/Instruments/PFD/PFD.xml</path>
+	        <path>Aircraft/JH-il-96-400/Models/Instruments/PFD/PFD.xml</path>
 	        <offsets>
 			<x-m>-23.481</x-m>
         		<y-m>-0.58600</y-m>
@@ -1963,7 +1963,7 @@ compltely reworked by JWocky
     
 	<model>
 		<name>PFD2</name>
-		<path>Aircraft/il-96-400/Models/Instruments/PFD/PFD.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Instruments/PFD/PFD.xml</path>
 		<offsets>
 			<x-m>-23.481</x-m>
 			<y-m>0.595</y-m>
@@ -1974,7 +1974,7 @@ compltely reworked by JWocky
     
 	<model>
 		<name>ND1</name>
-		<path>Aircraft/il-96-400/Models/Instruments/MFD/ND.xml</path>
+		<path>AircraftJH-/il-96-400/Models/Instruments/MFD/ND.xml</path>
 		<offsets>
 			<x-m>-23.489</x-m>
 			<y-m>-0.371</y-m>
@@ -1986,7 +1986,7 @@ compltely reworked by JWocky
 
 	<model>
 		<name>ND2</name>
-		<path>Aircraft/il-96-400/Models/Instruments/MFD/ND.xml</path>
+		<path>Aircraft/iJH-il-96-400/Models/Instruments/MFD/ND.xml</path>
 		<offsets>
 			<x-m>-23.489</x-m>
 			<y-m>0.377</y-m>
@@ -1997,7 +1997,7 @@ compltely reworked by JWocky
 
 	<model>
 		<name>EICAS</name>
-		<path>Aircraft/il-96-400/Models/Instruments/EICAS/eicas.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Instruments/EICAS/eicas.xml</path>
 		<offsets>
 			<x-m>-23.486</x-m>
 			<y-m>-0.147</y-m>
@@ -2009,7 +2009,7 @@ compltely reworked by JWocky
 
 	<model>
 		<name>EICAS</name>
-		<path>Aircraft/il-96-400/Models/Instruments/NDB/ndb.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Instruments/NDB/ndb.xml</path>
 		<offsets>
 			<x-m>-23.490</x-m>
 			<y-m>0.0890</y-m>
@@ -2024,7 +2024,7 @@ compltely reworked by JWocky
  
 	<model>
 		<name>APpanel</name>
-		<path>Aircraft/il-96-400/Models/APpanel.xml</path>
+		<path>Aircraft/iJH-l-96-400/Models/APpanel.xml</path>
 		<offsets>
 			<x-m>-23.487</x-m>
 			<y-m>-0.006</y-m>
@@ -2036,7 +2036,7 @@ compltely reworked by JWocky
 
 	<model>
 		<name>CTL1</name>
-	        <path>Aircraft/il-96-400/Models/Instruments/EFIS/efis-ctl.xml</path>
+	        <path>Aircraft/JH-il-96-400/Models/Instruments/EFIS/efis-ctl.xml</path>
 	        <offsets>
 			<x-m>-23.487</x-m>
 			<y-m>-0.384</y-m>
@@ -2047,7 +2047,7 @@ compltely reworked by JWocky
     
 	<model>
 		<name>CTL2</name>
-		<path>Aircraft/il-96-400/Models/Instruments/EFIS/efis-ctl.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Instruments/EFIS/efis-ctl.xml</path>
 		<offsets>
 			<x-m>-23.487</x-m>
 			<y-m>0.384</y-m>
@@ -2069,7 +2069,7 @@ compltely reworked by JWocky
      
 	<model>
 		<name>GearCTL</name>
-		<path>Aircraft/il-96-400/Models/gear-ctl.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/gear-ctl.xml</path>
 		<offsets>
 			<x-m>-23.490</x-m>
 			<y-m>0.245</y-m>
@@ -2080,7 +2080,7 @@ compltely reworked by JWocky
     
 	<model>
 		<name>VOR</name>
-		<path>Aircraft/il-96-400/Models/Instruments/VOR/rmi1.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Instruments/VOR/rmi1.xml</path>
 		<offsets>
 			<x-m>-23.488</x-m>
 			<y-m>-0.145</y-m>
@@ -2091,7 +2091,7 @@ compltely reworked by JWocky
     
 	<model>
 	        <name>Pane</name>
-		<path>Aircraft/il-96-400/Models/Instruments/pane/pane.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Instruments/pane/pane.xml</path>
 		<offsets>
 			<x-m>-23.488</x-m>
 			<y-m>0.219</y-m>
@@ -2102,7 +2102,7 @@ compltely reworked by JWocky
     
 	<model>
 		<name>ASI</name>
-		<path>Aircraft/il-96-400/Models/Instruments/AS/asi.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Instruments/AS/asi.xml</path>
 		<offsets>
 			<x-m>-23.490</x-m>
 			<y-m>-0.146</y-m>
@@ -2113,7 +2113,7 @@ compltely reworked by JWocky
  
 	<model>
 	        <name>HSI</name>
-	        <path>Aircraft/il-96-400/Models/Instruments/hsi/hsi.xml</path>
+	        <path>Aircraft/JH-il-96-400/Models/Instruments/hsi/hsi.xml</path>
 	        <offsets>
 			<x-m>-23.476</x-m>
 			<y-m>0.085</y-m>
@@ -2124,7 +2124,7 @@ compltely reworked by JWocky
       
 	<model>
 		<name>Manual Clock1</name>
-		<path>Aircraft/il-96-400/Models/Instruments/mclock/clock.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Instruments/mclock/clock.xml</path>
 		<offsets>
 			<x-m>-23.487</x-m>
 			<y-m>-0.286</y-m>
@@ -2135,7 +2135,7 @@ compltely reworked by JWocky
 
 	<model>
 		<name>Manual Clock2</name>
-		<path>Aircraft/il-96-400/Models/Instruments/mclock/clock.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Instruments/mclock/clock.xml</path>
 		<offsets>
 			<x-m>-23.487</x-m>
 			<y-m>0.29</y-m>
@@ -2146,7 +2146,7 @@ compltely reworked by JWocky
 
 	<model>
 		<name>Pedestal</name>
-		<path>Aircraft/il-96-400/Models/pedestal.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/pedestal.xml</path>
 		<offsets>
 			<x-m>-22.958</x-m>
 			<y-m>0.0</y-m>
@@ -2157,7 +2157,7 @@ compltely reworked by JWocky
     
 	<model>
 		<name>FuelTot</name>
-		<path>Aircraft/il-96-400/Models/Instruments/fueltot/fueltot.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Instruments/fueltot/fueltot.xml</path>
 		<offsets>
 			<x-m>-23.49</x-m>
 			<y-m>0.225</y-m>
@@ -2168,7 +2168,7 @@ compltely reworked by JWocky
 
 	<model>
 		<name>Ap Button set 2 Left</name>
-		<path>Aircraft/il-96-400/Models/Instruments/button/APpanellights.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Instruments/button/APpanellights.xml</path>
 		<offsets>
 			<x-m>-23.468</x-m>
 			<y-m>-0.366</y-m>
@@ -2180,7 +2180,7 @@ compltely reworked by JWocky
     
 	<model>
 		<name>Ap Button set 2 Right</name>
-		<path>Aircraft/il-96-400/Models/Instruments//button/APpanellights.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Instruments//button/APpanellights.xml</path>
 		<offsets>
 			<x-m>-23.468</x-m>
 			<y-m>0.401</y-m>
@@ -2191,7 +2191,7 @@ compltely reworked by JWocky
 
 	<model>
         	<name>Ap Button Main Left</name>
-		<path>Aircraft/il-96-400/Models/Instruments/button/APpanelbuttons.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Instruments/button/APpanelbuttons.xml</path>
 		<offsets>
 			<x-m>-23.487</x-m>
 			<y-m>-0.482</y-m>
@@ -2202,7 +2202,7 @@ compltely reworked by JWocky
     
 	<model>
 		<name>Ap Button Main Right</name>
-		<path>Aircraft/il-96-400/Models/Instruments/button/APpanelbuttons.xml</path>
+		<path>AircraftJH-/il-96-400/Models/Instruments/button/APpanelbuttons.xml</path>
 		<offsets>
 			<x-m>-23.487</x-m>
 			<y-m>0.486</y-m>
@@ -2213,7 +2213,7 @@ compltely reworked by JWocky
  
  	<model>
 		<name>Main Panel Buttons</name>
-		<path>Aircraft/il-96-400/Models/Instruments/button/panelbuttons.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Instruments/button/panelbuttons.xml</path>
 		<offsets>
 			<x-m>-23.486</x-m>
 			<y-m>-0.221</y-m>
@@ -2224,7 +2224,7 @@ compltely reworked by JWocky
  
 	<model>
 		<name>PanelButtons</name>
-		<path>Aircraft/il-96-400/Models/Instruments/button/panelbuttons2.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Instruments/button/panelbuttons2.xml</path>
 		<offsets>
 			<x-m>-23.469</x-m>
 			<y-m>-0.117</y-m>
@@ -2235,7 +2235,7 @@ compltely reworked by JWocky
  
 	<model>
 		<name>Stby</name>
-		<path>Aircraft/il-96-400/Models/Instruments/stby-alt.xml</path>
+		<path>Aircraft/JH-il-96-400/Models/Instruments/stby-alt.xml</path>
 		<offsets>
 			<x-m>-23.490</x-m>
 			<y-m>-0.222</y-m>
@@ -2254,7 +2254,7 @@ compltely reworked by JWocky
   
  <model>
     <name>exhaust_left0</name>
-    <path>Aircraft/il-96-400/Models/Effects/exhaust.xml</path>
+    <path>Aircraft/JH-il-96-400/Models/Effects/exhaust.xml</path>
      
 	 <condition>
 	 <and>
@@ -2310,7 +2310,7 @@ compltely reworked by JWocky
  
   <model>
     <name>exhaust_left1</name>
-    <path>Aircraft/il-96-400/Models/Effects/exhaust.xml</path>
+    <path>Aircraft/JH-il-96-400/Models/Effects/exhaust.xml</path>
      
 	 <condition>
 	 <and>
@@ -2368,7 +2368,7 @@ compltely reworked by JWocky
  
  <model>
     <name>exhaust_right2</name>
-    <path>Aircraft/il-96-400/Models/Effects/exhaust.xml</path>
+    <path>Aircraft/JH-il-96-400/Models/Effects/exhaust.xml</path>
      
 	 <condition>
 	 <and>
@@ -2425,7 +2425,7 @@ compltely reworked by JWocky
 
 <model>
     <name>exhaust_right3</name>
-    <path>Aircraft/il-96-400/Models/Effects/exhaust.xml</path>
+    <path>Aircraft/JH-il-96-400/Models/Effects/exhaust.xml</path>
      
 	 <condition>
 	 <and>
@@ -2479,7 +2479,7 @@ compltely reworked by JWocky
 
 <model>
  <name>Engine0</name>
- <path>Aircraft/il-96-400/Models/enginefire.xml</path>
+ <path>Aircraft/JH-il-96-400/Models/enginefire.xml</path>
 <condition>
  <equals>
 			             <property>sim/crashed</property>
@@ -2499,7 +2499,7 @@ compltely reworked by JWocky
 
  <model>
  <name>Engine0S</name>
- <path>Aircraft/il-96-400/Models/enginefire.xml</path>
+ <path>Aircraft/JH-il-96-400/Models/enginefire.xml</path>
 <condition>
  <equals>
 			             <property>sim/failure-manager/engines/engine[0]/serviceable</property>
@@ -2520,7 +2520,7 @@ compltely reworked by JWocky
  
  <model>
  <name>Engine1</name>
- <path>Aircraft/il-96-400/Models/enginefire.xml</path>
+ <path>Aircraft/JH-il-96-400/Models/enginefire.xml</path>
 <condition>
  <equals>
 			             <property>sim/crashed</property>
@@ -2541,7 +2541,7 @@ compltely reworked by JWocky
 
 <model>
  <name>Engine1S</name>
- <path>Aircraft/il-96-400/Models/enginefire.xml</path>
+ <path>Aircraft/JH-il-96-400/Models/enginefire.xml</path>
 <condition>
  <equals>
 			             <property>sim/failure-manager/engines/engine[1]/serviceable</property>
@@ -2562,7 +2562,7 @@ compltely reworked by JWocky
 
 <model>
  <name>Engine2</name>
- <path>Aircraft/il-96-400/Models/enginefire.xml</path>
+ <path>Aircraft/JH-il-96-400/Models/enginefire.xml</path>
 <condition>
  <equals>
 			             <property>sim/crashed</property>
@@ -2583,7 +2583,7 @@ compltely reworked by JWocky
  
 <model>
  <name>Engine2S</name>
- <path>Aircraft/il-96-400/Models/enginefire.xml</path>
+ <path>Aircraft/JH-il-96-400/Models/enginefire.xml</path>
 <condition>
  <equals>
 			             <property>sim/failure-manager/engines/engine[2]/serviceable</property>
@@ -2604,7 +2604,7 @@ compltely reworked by JWocky
  
  <model>
  <name>Engine3</name>
- <path>Aircraft/il-96-400/Models/enginefire.xml</path>
+ <path>Aircraft/JH-il-96-400/Models/enginefire.xml</path>
  <condition>
  <equals>
 			             <property>sim/crashed</property>
@@ -2623,7 +2623,7 @@ compltely reworked by JWocky
  
  <model>
  <name>Engine3S</name>
- <path>Aircraft/il-96-400/Models/enginefire.xml</path>
+ <path>Aircraft/JH-il-96-400/Models/enginefire.xml</path>
  <condition>
  <equals>
 			             <property>sim/failure-manager/engines/engine[3]/serviceable</property>

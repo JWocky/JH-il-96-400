@@ -6,17 +6,6 @@
 
 	<path>flightdeck.ac</path>
 
-	<!-- <model>
-	Already commented out in original version
-	<name>Pedestal</name>
-	<path>Aircraft/JH-il-96-400/Models/pedestal.xml</path>
-	<offsets>
-		<x-m>-1.288</x-m>
-		<y-m>0.017</y-m>
-		<z-m>-0.388</z-m>
-	</offsets>
-	</model> -->
-
     
 
 	<model>
@@ -30,103 +19,10 @@
 		</offsets>
 	</model>
 
-	<!-- <model>
-		<name>APpanel</name>
-		<path>Aircraft/JH-il-96-400/Models/APpanel.xml</path>
-		<offsets>
-			<x-m>-23.57</x-m>
-			<y-m>-0.006</y-m>
-			<z-m>0.615</z-m>
-			<pitch-deg>-10</pitch-deg>
-		</offsets>
-	</model> -->
-
-	<!-- <model>
-		<name>CTL1</name>
-		<path>Aircraft/JH-il-96-400/Models/Instruments/EFIS/efis-ctl.xml</path>
-		<offsets>
-			<x-m>-23.57</x-m>
-			<y-m>-0.371</y-m>
-			<z-m>0.581</z-m>
-			<pitch-deg>-10</pitch-deg>
-		</offsets>
-	</model> -->
-
-	<!-- <model>
-		<name>CTL2</name>
-		<path>Aircraft/JH_il-96-400/Models/Instruments/EFIS/efis-ctl.xml</path>
-		<offsets>
-			<x-m>-23.57</x-m>
-			<y-m>0.340</y-m>
-			<z-m>0.581</z-m>
-			<pitch-deg>-10</pitch-deg>
-		</offsets>
-	</model> -->
-
-	<!--  <model>
-		<name>Pclock </name>
-		<path>Aircraft/JH-il-96-400/Models/Instruments/chronometer.xml</path>
-		<offsets>
-			<x-m>-23.352</x-m>
-			<y-m>-0.018</y-m>
-			<z-m>0.981</z-m>
-			<pitch-deg>-45</pitch-deg>
-		</offsets>
-	</model> -->
-
-
-   <!-- <model>
-        <name>STDBY AI</name>
-        <path>Aircraft/JH-il-96-400/Models/Instruments/stby-ai.xml</path>
-        <offsets>
-            <x-m>-23.60</x-m>
-            <y-m>-0.009</y-m>
-            <z-m>0.477</z-m>
-            <pitch-deg>-10</pitch-deg>
-        </offsets>
-    </model> -->
-
-   
-
-   <!-- <model>
-        <name>STBY ALT</name>
-        <path>AircraftJH-/il-96-400/Models/Instruments/stby-alt.xml</path>
-        <offsets>
-            <x-m>-23.60</x-m>
-            <y-m>-0.277</y-m>
-            <z-m>0.477</z-m>
-            <pitch-deg>-10</pitch-deg>
-        </offsets>
-    </model> -->
-
-
-
-    <!-- <model>
-        <name>GearCTL</name>
-        <path>AircraftJH-/il-96-400/Models/gear-ctl.xml</path>
-        <offsets>
-            <x-m>-23.568</x-m>
-            <y-m>0.307</y-m>
-            <z-m>0.390</z-m>
-            <pitch-deg>-10</pitch-deg>
-        </offsets>
-    </model> -->
-
-<!--2d PFD-->
-    <!--model>
-        <name>panel1</name>
-        <path>Aircraft/JH-il-96-400/Models/panel1.xml</path>
-    </model-->
-
-<!--3d PFD-->
-    <!-- <model>
-        <name>panel2</name>
-        <path>Aircraft/JH-il-96-400/Models/panel2.xml</path>
-    </model> -->
 
 <!--  controls -->
 
-  <!--  <animation>
+  <animation>
         <type>translate</type>
         <object-name>RHpedal</object-name>
         <property>controls/flight/rudder</property>
